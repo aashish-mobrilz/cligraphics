@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDesignTheme } from '../context/DesignThemeContext';
-import { ShieldCheck, Calendar, AlertCircle, Award } from 'lucide-react';
+import { ShieldCheck, Calendar, AlertCircle, Award, Sparkles } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   const { isOptionB } = useDesignTheme();
@@ -8,49 +8,53 @@ export const AboutPage: React.FC = () => {
   return (
     <div className={`min-h-screen py-12 ${isOptionB ? 'bg-[#FBFBFA]' : 'bg-slate-50'}`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* About Hero */}
-        <div className="bg-[#0B3B60] text-white rounded-3xl p-8 sm:p-14 shadow-lg space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold border border-white/20">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Family Owned Since January, 1997</span>
+        {/* Bright About Hero */}
+        <div className="bg-gradient-to-br from-sky-50 via-white to-amber-50/50 border-2 border-slate-200 rounded-3xl p-8 sm:p-14 shadow-sm space-y-4">
+          <div className="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300 text-slate-900 text-xs sm:text-sm font-bold shadow-2xs">
+            <Sparkles className="w-4 h-4 text-amber-600" />
+            <span className="text-amber-800">Family Owned</span>
+            <span className="text-slate-300">&bull;</span>
+            <span className="text-slate-800 font-extrabold">Established January, 1997</span>
+            <span className="text-slate-300">&bull;</span>
+            <span className="text-orange-600 font-extrabold">Celebrating 30 Years (1997-2027)</span>
           </div>
 
-          <h1 className={`text-3xl sm:text-5xl font-black tracking-tight ${isOptionB ? 'font-serif' : 'font-heading'}`}>
-            Celebrating 30 Years as One Source for All Your Conference Needs
+          <h1 className={`text-3xl sm:text-5xl font-black tracking-tight text-slate-900 ${isOptionB ? 'font-serif' : 'font-heading'}`}>
+            One Source for All Your Conference Needs
           </h1>
 
-          <p className="text-sky-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-            For three decades, CliGraphics has partnered with conference organizers, corporate event planners, associations, and summit hosts to deliver reliable event merchandise, custom bags, printing, and direct logistics.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl font-medium">
+            For three decades, CliGraphics has partnered with conference organizers, corporate event planners, associations, and summit hosts to deliver reliable promotional products, custom bags, printing, and direct logistics.
           </p>
         </div>
 
         {/* Client Provided Statements Pillar Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-3">
+          <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-xs space-y-3">
             <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900">Family Owned</h3>
+            <h3 className="text-lg font-bold text-slate-900">Family Owned</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Founded on personalized service, direct accountability, and lasting relationships with event organizers and trade associations.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-3">
+          <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-xs space-y-3">
             <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-bold">
               <Calendar className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900">Est. January, 1997</h3>
+            <h3 className="text-lg font-bold text-slate-900">Established January, 1997</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Three decades of proven industry longevity, surviving changing print technologies and evolving digital attendee requirements.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+          <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-xs space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-700 flex items-center justify-center font-bold">
               <Award className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900">One Single Source</h3>
+            <h3 className="text-lg font-bold text-slate-900">Celebrating 30 Years</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Consolidate your merchandise, custom bags, program guide printing, and freight fulfillment under a single coordinated partner.
             </p>

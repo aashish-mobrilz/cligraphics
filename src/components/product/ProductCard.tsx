@@ -2,7 +2,7 @@ import React from 'react';
 import { Product } from '../../types/product';
 import { useDesignTheme } from '../../context/DesignThemeContext';
 import { ProductImageMockup } from '../common/ProductImageMockup';
-import { Palette, Sparkles, Check, ChevronRight } from 'lucide-react';
+import { Palette, Sparkles, Check } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -18,7 +18,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   // ========================================================
   // OPTION B: EDITORIAL / CORPORATE CONFERENCE PRESENTATION
-  // Static display card (non-clickable per requirement)
+  // Static display card (non-navigating per requirement)
   // ========================================================
   if (isOptionB) {
     return (
@@ -79,48 +79,25 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 ))}
               </div>
             )}
-
-            {/* Color Palette List */}
-            {product.availableColors && product.availableColors.length > 0 && (
-              <div className="mt-4 flex items-center gap-2">
-                <span className="text-[10px] uppercase font-semibold text-stone-400 tracking-wider">Palette:</span>
-                <div className="flex items-center gap-1.5">
-                  {product.availableColors.slice(0, 5).map((color, idx) => (
-                    <span
-                      key={idx}
-                      style={{ backgroundColor: color.hex }}
-                      className="w-3.5 h-3.5 rounded-full border border-stone-300 shadow-2xs"
-                      title={color.name}
-                    />
-                  ))}
-                  {product.availableColors.length > 5 && (
-                    <span className="text-[10px] text-stone-500 font-medium ml-1">
-                      +{product.availableColors.length - 5}
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
 
-          {/* Pricing & Editorial Action Bar (Static display) */}
-          <div className="pt-4 border-t border-[#E7E5E0] flex items-end justify-between">
+          {/* Pricing & Specification Footer (Static) */}
+          <div className="pt-4 border-t border-stone-200/70 flex flex-wrap items-center justify-between gap-4">
             <div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-stone-400 block">
-                Volume Pricing From
+              <span className="text-[10px] text-stone-400 font-serif uppercase tracking-widest block">
+                Volume Master Rate
               </span>
               <div className="flex items-baseline gap-1 mt-0.5">
-                <span className="text-xl font-serif font-black text-stone-900">
+                <span className="text-xl font-serif font-bold text-stone-950">
                   ${lowestTierPrice.toFixed(2)}
                 </span>
-                <span className="text-xs text-stone-500 font-medium">/ unit</span>
+                <span className="text-xs text-stone-500 font-serif">/ unit</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="px-3.5 py-1.5 rounded-lg text-xs font-serif font-semibold text-stone-700 bg-stone-200/70 border border-stone-300/60 cursor-default flex items-center gap-1">
-                <span>Sample Specification</span>
-                <ChevronRight className="w-3.5 h-3.5 text-stone-500" />
+            <div>
+              <span className="px-4 py-2 rounded-lg text-xs font-serif font-bold text-stone-700 bg-stone-100 border border-stone-200 cursor-default">
+                Portfolio Spec
               </span>
             </div>
           </div>
@@ -131,7 +108,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   // ========================================================
   // OPTION A: 4IMPRINT-STYLE PRODUCT-LED COMMERCIAL CARD
-  // Static display card (non-clickable per requirement)
+  // Static display card (non-navigating per requirement)
   // ========================================================
   return (
     <div className="group rounded-2xl border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden bg-white select-none">

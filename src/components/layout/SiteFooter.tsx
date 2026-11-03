@@ -1,36 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useDesignTheme } from '../../context/DesignThemeContext';
 import { CATEGORIES } from '../../data/categories';
-import { ShieldCheck, Calendar, MapPin, Mail, Info, Sparkles } from 'lucide-react';
+import { ShieldCheck, Calendar, Info, Sparkles } from 'lucide-react';
 
 export const SiteFooter: React.FC = () => {
   const { isOptionB } = useDesignTheme();
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   // ========================================================
   // OPTION B: EDITORIAL CONCIERGE & ARCHITECTURAL FOOTER
-  // Warm obsidian & gallery cream aesthetic with serif branding
   // ========================================================
   if (isOptionB) {
     return (
-      <footer className="bg-[#11181D] text-stone-300 border-t border-stone-800 text-xs">
+      <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 text-xs">
         {/* Upper Editorial Brand & Heritage Banner */}
-        <div className="border-b border-stone-800/80 py-10 px-4 sm:px-6 lg:px-8">
+        <div className="border-b border-stone-800 py-10 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
               <div className="flex items-center justify-center md:justify-start gap-2.5">
                 <span className="font-serif text-2xl font-bold tracking-tight text-white">
                   CliGraphics
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className="text-[10px] uppercase font-bold tracking-widest px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
                   Established 1997
                 </span>
               </div>
@@ -39,14 +30,14 @@ export const SiteFooter: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 text-xs">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-900 border border-stone-700 text-amber-300 font-medium cursor-default">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-stone-800 border border-stone-700 text-amber-300 font-bold">
+                <Sparkles className="w-4 h-4 text-amber-400" />
                 Family Owned
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-900 border border-stone-700 text-stone-300 font-medium cursor-default">
-                <Calendar className="w-3.5 h-3.5 text-amber-500" />
-                Celebrating 30 Years
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-stone-800 border border-stone-700 text-white font-bold">
+                <Calendar className="w-4 h-4 text-amber-500" />
+                Celebrating 30 Years (1997 - 2027)
               </span>
             </div>
           </div>
@@ -55,17 +46,17 @@ export const SiteFooter: React.FC = () => {
         {/* Multi-Column Nav Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Col 1: Merchandise Collections (Static Display per requirement 1) */}
+            {/* Col 1: Product Categories */}
             <div>
               <h4 className="font-serif font-bold text-amber-300 uppercase tracking-widest text-[11px] mb-4">
-                Conference Merchandise
+                Product Categories
               </h4>
-              <ul className="space-y-2.5 text-xs text-stone-400">
+              <ul className="space-y-2 text-xs text-stone-400 font-serif">
                 {CATEGORIES.filter((c) => c.type === 'product').map((cat) => (
                   <li key={cat.id}>
-                    <span className="cursor-default select-none text-stone-400">
+                    <Link to={`/category/${cat.slug}`} className="hover:text-amber-200 transition-colors">
                       {cat.name}
-                    </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -76,34 +67,26 @@ export const SiteFooter: React.FC = () => {
               <h4 className="font-serif font-bold text-amber-300 uppercase tracking-widest text-[11px] mb-4">
                 Commercial Services & Help
               </h4>
-              <ul className="space-y-2.5 text-xs text-stone-400">
+              <ul className="space-y-2 text-xs text-stone-400 font-serif">
                 <li>
-                  <span className="cursor-default select-none text-stone-400">
+                  <Link to="/services/printing" className="hover:text-amber-200 transition-colors">
                     Commercial Web Printing
-                  </span>
+                  </Link>
                 </li>
                 <li>
-                  <span className="cursor-default select-none text-stone-400">
+                  <Link to="/services/fulfillment" className="hover:text-amber-200 transition-colors">
                     Dock Fulfillment & Direct Mail
-                  </span>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('services-section')}
-                    className="hover:text-amber-200 transition-colors text-left"
-                  >
+                  <Link to="/services" className="hover:text-amber-200 transition-colors">
                     Complete Event Solutions
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('faq')}
-                    className="hover:text-amber-200 transition-colors text-left"
-                  >
+                  <Link to="/faq" className="hover:text-amber-200 transition-colors">
                     Frequently Asked Questions
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -113,60 +96,50 @@ export const SiteFooter: React.FC = () => {
               <h4 className="font-serif font-bold text-amber-300 uppercase tracking-widest text-[11px] mb-4">
                 Company Heritage
               </h4>
-              <ul className="space-y-2.5 text-xs text-stone-400">
+              <ul className="space-y-2 text-xs text-stone-400 font-serif">
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('about')}
-                    className="hover:text-amber-200 transition-colors text-left"
-                  >
-                    30-Year Craft Story
-                  </button>
+                  <Link to="/about" className="hover:text-amber-200 transition-colors">
+                    Established January, 1997
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('contact')}
-                    className="hover:text-amber-200 transition-colors text-left"
-                  >
-                    Concierge Inquiry
-                  </button>
+                  <Link to="/about" className="hover:text-amber-200 transition-colors">
+                    Celebrating 30 Years
+                  </Link>
                 </li>
-                <li className="pt-2 text-stone-500 text-[11px] leading-relaxed cursor-default">
-                  Proudly family-owned and operated since January 1997, supporting national keynote events and trade conventions.
+                <li>
+                  <Link to="/contact" className="hover:text-amber-200 transition-colors">
+                    Concierge Sample Assistance
+                  </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Col 4: Concierge Inquiries */}
-            <div>
+            {/* Col 4: Corporate Concierge & Prototype Disclaimer */}
+            <div className="space-y-3 font-serif">
               <h4 className="font-serif font-bold text-amber-300 uppercase tracking-widest text-[11px] mb-4">
-                Client Concierge
+                Concierge Production
               </h4>
-              <div className="space-y-2.5 text-xs text-stone-400">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-amber-500" />
-                  <span>Production Facility (Client Address Pending)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 flex-shrink-0 text-amber-500" />
-                  <span>concierge@cligraphics.demo</span>
-                </div>
-                <div className="pt-3">
-                  <span className="text-[10px] text-stone-500 block uppercase tracking-wider">Toll-Free Assistance</span>
-                  <span className="text-sm font-serif font-bold text-white">1-800-CLI-CONF</span>
-                </div>
+              <p className="text-stone-400 text-xs leading-relaxed">
+                Dedicated production liaisons assigned to corporate event planners, national associations, and summit committees.
+              </p>
+              <div className="pt-2 text-stone-400 text-xs">
+                <span>Direct Toll-Free: </span>
+                <span className="text-white font-bold">1-800-CLI-CONF (Demo)</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Disclaimers */}
-        <div className="border-t border-stone-800 bg-black/60 py-4 px-4 text-center">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-stone-500">
-            <div className="flex items-center gap-1.5 text-amber-400/80">
-              <Info className="w-3.5 h-3.5 text-amber-500" />
-              <span>Simulated Prototype: Local React state only &bull; No live order or payment execution.</span>
+        {/* Bottom Bar with Prototype Notice */}
+        <div className="border-t border-stone-800 py-6 px-4 sm:px-6 lg:px-8 bg-stone-950">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500 font-serif">
+            <div>
+              &copy; 1997 &ndash; 2027 CliGraphics.com. Family Owned & Operated. All rights reserved.
+            </div>
+            <div className="flex items-center gap-2 text-amber-500/80">
+              <Info className="w-3.5 h-3.5" />
+              <span>Static UI Prototype &bull; No live orders or transactions</span>
             </div>
           </div>
         </div>
@@ -184,44 +157,44 @@ export const SiteFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Col 1: Brand Story & Client Statements */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-sm">
                 CG
               </div>
               <span className="text-xl font-black text-white tracking-tight">CliGraphics</span>
-            </div>
+            </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               <span className="font-semibold text-white">One source for all your conference needs.</span> Delivering premium promotional merchandise, custom bags, conference lanyards, printing, and direct fulfillment since 1997.
             </p>
 
-            {/* Client Provided Badges */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 text-amber-300 font-semibold text-[11px] border border-slate-700">
-                <ShieldCheck className="w-3.5 h-3.5" />
+            {/* Client Provided Badges - ENLARGED */}
+            <div className="flex flex-wrap gap-2 pt-2 text-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-sky-300 font-bold text-xs border border-slate-700">
+                <ShieldCheck className="w-4 h-4 text-sky-400" />
                 Family Owned
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 text-sky-300 font-semibold text-[11px] border border-slate-700">
-                <Calendar className="w-3.5 h-3.5" />
-                Est. January, 1997
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-white font-bold text-xs border border-slate-700">
+                <Calendar className="w-4 h-4 text-amber-400" />
+                Established January, 1997
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 text-emerald-300 font-semibold text-[11px] border border-slate-700">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-950/80 text-orange-300 font-bold text-xs border border-orange-800">
                 Celebrating 30 Years
               </span>
             </div>
           </div>
 
-          {/* Col 2: Merchandise Categories (Static Display per requirement 1) */}
+          {/* Col 2: Product Categories */}
           <div>
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-3">
-              Merchandise
+              Product Categories
             </h4>
             <ul className="space-y-2 text-xs">
               {CATEGORIES.filter((c) => c.type === 'product').map((cat) => (
                 <li key={cat.id}>
-                  <span className="text-slate-400 cursor-default">
+                  <Link to={`/category/${cat.slug}`} className="text-slate-400 hover:text-white transition-colors">
                     {cat.name}
-                  </span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -234,87 +207,60 @@ export const SiteFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <span className="text-slate-400 cursor-default">
+                <Link to="/services/printing" className="text-slate-400 hover:text-white transition-colors">
                   Commercial Printing
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="text-slate-400 cursor-default">
+                <Link to="/services/fulfillment" className="text-slate-400 hover:text-white transition-colors">
                   Swag Box Fulfillment
-                </span>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('services-section')}
-                  className="hover:text-white transition-colors text-left"
-                >
+                <Link to="/services" className="text-slate-400 hover:text-white transition-colors">
                   All Conference Services
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('faq')}
-                  className="hover:text-white transition-colors text-left"
-                >
+                <Link to="/faq" className="text-slate-400 hover:text-white transition-colors">
                   Frequently Asked Questions
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Company & Demonstration Placeholders */}
-          <div className="lg:col-span-1">
+          {/* Col 4: Trust & Assurance */}
+          <div>
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-3">
-              Company
+              Why CliGraphics
             </h4>
             <ul className="space-y-2 text-xs">
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('about')}
-                  className="hover:text-white transition-colors text-left"
-                >
-                  About CliGraphics
-                </button>
+              <li className="text-slate-400 flex items-start gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
+                <span>Family Owned Business</span>
               </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('contact')}
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Contact & Inquiries
-                </button>
+              <li className="text-slate-400 flex items-start gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                <span>Established January, 1997</span>
               </li>
-              <li className="pt-2 text-slate-400">
-                <div className="flex items-start gap-1.5 text-[11px]">
-                  <MapPin className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-slate-500" />
-                  <span>Facility Location Placeholder (Client Contact Info Pending)</span>
-                </div>
-              </li>
-              <li className="text-slate-400">
-                <div className="flex items-center gap-1.5 text-[11px]">
-                  <Mail className="w-3.5 h-3.5 flex-shrink-0 text-slate-500" />
-                  <span>info@cligraphics.demo</span>
-                </div>
+              <li className="text-slate-400 flex items-start gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400 flex-shrink-0 mt-0.5" />
+                <span>Celebrating 30 Years (1997-2027)</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Demonstration Banner & Legal Notice */}
-      <div className="border-t border-slate-800 bg-black/40 py-4 px-4 text-center">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-          <p>
-            &copy; {new Date().getFullYear()} CliGraphics.com &bull;
-            All rights reserved. 
-          </p>
-          <div className="flex items-center gap-1 text-slate-400">
-            <Info className="w-3.5 h-3.5 text-amber-500" />
-            <span>Demonstration only: No payment processing, backend, or real order creation.</span>
+      {/* Bottom Legal / Prototype Bar */}
+      <div className="border-t border-slate-800 bg-slate-950 py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+          <div>
+            &copy; 1997 &ndash; 2027 CliGraphics.com. Family Owned & Operated. All rights reserved.
+          </div>
+          <div className="flex items-center gap-1.5 text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+            <Info className="w-3.5 h-3.5" />
+            <span>Interactive Frontend Prototype &bull; No live transactions</span>
           </div>
         </div>
       </div>

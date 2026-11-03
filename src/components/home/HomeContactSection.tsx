@@ -145,7 +145,7 @@ export const HomeContactSection: React.FC = () => {
 
   // Option A: Commercial Promotional Layout
   return (
-    <section id="contact" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="contact" className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm">
         <div className="max-w-2xl mx-auto text-center space-y-3 mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
@@ -159,7 +159,7 @@ export const HomeContactSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 align-middle">
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 space-y-3 text-xs">
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">

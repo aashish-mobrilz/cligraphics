@@ -59,6 +59,9 @@ export const SiteHeader: React.FC = () => {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setMobileSearchOpen(false);
+    setMobileMenuOpenA(false);
+    setMobileMenuOpenB(false);
+
     const el = document.getElementById(isOptionB ? 'products-section' : 'featured-products');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -70,6 +73,7 @@ export const SiteHeader: React.FC = () => {
     setMobileMenuOpenB(false);
     setCategoriesOpenA(false);
     setCategoriesOpenB(false);
+
     if (id === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -95,11 +99,12 @@ export const SiteHeader: React.FC = () => {
     }
   };
 
-  // Helper to render category tiles in a modern multi-column grid approach
+  // Helper to render static presentation category tiles in dropdowns
   const renderCategoryGridTile = (cat: typeof CATEGORIES[0], isThemeB: boolean) => (
     <div
       key={cat.id}
-      className={`group/tile flex items-start gap-3 p-3 rounded-xl cursor-default select-none transition-all ${
+      onClick={() => scrollToSection('product-categories')}
+      className={`group/tile flex items-start gap-3 p-3 rounded-xl cursor-pointer select-none transition-all ${
         isThemeB
           ? 'bg-stone-900/60 border border-stone-800/80 hover:border-amber-500/40 hover:bg-stone-800/80'
           : 'bg-slate-50/70 border border-slate-200/70 hover:border-sky-300 hover:bg-sky-50/60 hover:shadow-2xs'
@@ -139,19 +144,16 @@ export const SiteHeader: React.FC = () => {
   );
 
   // =========================================================================
-  // OPTION B: ALTERNATIVE HEADER LAYOUT (Two-Tier Architectural & Editorial Masthead)
-  // Distinct hierarchy:
-  // Tier 1 (Top): Search Bar (Left) -> Centered Editorial Logo -> Cart & Concierge (Right)
-  // Tier 2 (Bottom): Standalone "All Categories" Pill (Left) -> Main Navigation (Center) -> Slogan (Right)
+  // OPTION B: ARCHITECTURAL & EDITORIAL MASTHEAD (Static Prototype Layout)
   // =========================================================================
   if (isOptionB) {
     return (
       <header className="bg-[#FAF9F6] text-stone-900 border-b border-[#E7E5E0] sticky top-0 z-40 transition-colors shadow-2xs">
         {/* Tier 1: Main Brand & Utility Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <div className="flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
             {/* Left: Search Functionality (Desktop) & Mobile Toggle */}
-            <div className="flex items-center gap-3 md:w-1/4">
+            <div className="flex items-center gap-2 sm:gap-3 md:w-1/4">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpenB(!mobileMenuOpenB)}
@@ -173,33 +175,35 @@ export const SiteHeader: React.FC = () => {
               </form>
             </div>
 
-            {/* Center: Prestigious Architectural Wordmark / Logo */}
-            <button
-              type="button"
+            {/* Center: Architectural Wordmark / Logo (Scrolls to top) */}
+            <div
               onClick={() => scrollToSection('top')}
-              className="text-center group flex flex-col items-center cursor-pointer flex-shrink-0"
+              className="text-center group flex flex-col items-center cursor-pointer flex-shrink-0 select-none"
             >
               <div className="flex items-center gap-2">
-                <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-stone-950 group-hover:text-amber-800 transition-colors">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#1A2328] text-amber-300 flex items-center justify-center font-serif font-black text-sm border border-stone-700 shadow-xs">
+                  CG
+                </div>
+                <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-stone-900 group-hover:text-amber-800 transition-colors">
                   CliGraphics
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
-                  Est. 1997
+                <span className="text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300 font-serif font-bold hidden sm:inline-block">
+                  30 Yrs
                 </span>
               </div>
               <span className="text-[10px] uppercase tracking-widest text-stone-500 font-medium hidden sm:block mt-0.5 font-serif">
                 Conference Supplies &bull; Atelier &bull; Commercial Press
               </span>
-            </button>
+            </div>
 
-            {/* Right: Portfolio Cart & Quick Phone Link */}
-            <div className="flex items-center justify-end gap-3 md:w-1/4">
+            {/* Right: Portfolio Cart Display (Static per requirement) */}
+            <div className="flex items-center justify-end gap-2 sm:gap-3 md:w-1/4">
               <div className="hidden lg:flex flex-col text-right text-[11px] text-stone-500 font-serif">
                 <span className="text-[9px] uppercase tracking-widest text-amber-700 font-bold">Event Concierge</span>
                 <span className="font-semibold text-stone-800">1-800-CLI-CONF</span>
               </div>
 
-              {/* Demo Cart Display */}
+              {/* Static Portfolio Cart Display */}
               <div
                 className="relative flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-serif font-semibold bg-stone-100 border border-stone-200 text-stone-800 cursor-default select-none"
                 title="Demo Portfolio Cart"
@@ -235,7 +239,7 @@ export const SiteHeader: React.FC = () => {
                 <ChevronDown className={`w-3.5 h-3.5 text-amber-300 transition-transform ${categoriesOpenB ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Standalone Dropdown Panel (Grid Approach) */}
+              {/* Standalone Dropdown Panel */}
               {categoriesOpenB && (
                 <div className="absolute left-0 top-full mt-2 w-[580px] sm:w-[650px] max-w-[calc(100vw-2rem)] bg-[#1A2328] border border-stone-800 rounded-2xl shadow-2xl p-4 z-50 text-left font-sans animate-in fade-in zoom-in-95 duration-150">
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-stone-800 px-1">
@@ -257,7 +261,6 @@ export const SiteHeader: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* 3-Column Responsive Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                     {CATEGORIES.map((cat) => renderCategoryGridTile(cat, true))}
                   </div>
@@ -270,7 +273,7 @@ export const SiteHeader: React.FC = () => {
               )}
             </div>
 
-            {/* Center / Right: Main Navigation Menu (Separated from Categories) */}
+            {/* Center / Right: Main Navigation Menu (In-page scrolling only) */}
             <nav aria-label="Main navigation" className="hidden md:flex items-center justify-center gap-8">
               <button
                 type="button"
@@ -319,13 +322,19 @@ export const SiteHeader: React.FC = () => {
                 placeholder="Search conference supplies..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-stone-100 border border-stone-200 text-stone-900 outline-none font-serif"
+                className="w-full pl-8 pr-16 py-2 rounded-xl text-xs bg-stone-100 border border-stone-200 text-stone-900 placeholder-stone-400 outline-none font-serif"
               />
-              <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <button
+                type="submit"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-lg text-xs font-serif font-bold text-amber-300 bg-[#1A2328]"
+              >
+                Search
+              </button>
             </form>
 
-            {/* Standalone All Categories Accordion */}
-            <div className="border border-stone-200 rounded-xl bg-white overflow-hidden shadow-xs">
+            {/* All Categories Accordion */}
+            <div className="border border-stone-200 rounded-xl bg-stone-50/50 overflow-hidden">
               <button
                 type="button"
                 onClick={() => setMobileCategoriesExpandedB(!mobileCategoriesExpandedB)}
@@ -338,14 +347,14 @@ export const SiteHeader: React.FC = () => {
                 <ChevronDown className={`w-4 h-4 text-stone-500 transition-transform ${mobileCategoriesExpandedB ? 'rotate-180' : ''}`} />
               </button>
               {mobileCategoriesExpandedB && (
-                <div className="p-3 bg-[#1A2328] text-stone-300 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="p-3 bg-stone-900 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {CATEGORIES.map((cat) => renderCategoryGridTile(cat, true))}
                 </div>
               )}
             </div>
 
-            {/* Main Navigation Links */}
-            <div className="space-y-1 font-serif text-sm">
+            {/* Navigation links (In-page scroll) */}
+            <div className="space-y-1 text-sm font-serif">
               <span className="text-[10px] uppercase font-bold tracking-widest text-stone-400 block px-2 mb-1">
                 Navigation
               </span>
@@ -377,6 +386,12 @@ export const SiteHeader: React.FC = () => {
               >
                 FAQ
               </button>
+              <div className="w-full text-left px-3 py-2 rounded-lg font-semibold text-amber-800 flex items-center justify-between bg-amber-50/50 cursor-default">
+                <span>Portfolio Cart</span>
+                <span className="bg-amber-600 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                  {totalItemsCount}
+                </span>
+              </div>
             </div>
           </div>
         )}
@@ -385,27 +400,24 @@ export const SiteHeader: React.FC = () => {
   }
 
   // =========================================================================
-  // OPTION A: INTEGRATED HEADER LAYOUT
-  // Reorganized order strictly following:
-  // Logo ──> All Categories ──> Main Navigation ──> Search Bar / Search Icon ──> Cart Icon
+  // OPTION A: INTEGRATED HEADER LAYOUT (Static Prototype Layout)
+  // Preserving Exact Order: Logo -> All Categories -> Navigation -> Search -> Cart
   // =========================================================================
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-40 transition-colors shadow-2xs">
-      {/* Primary Header Row containing ALL elements integrated horizontally */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between gap-3 lg:gap-5">
-          {/* 1. LOGO */}
-          <button
-            type="button"
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-5">
+          {/* 1. LOGO (Scrolls to top) */}
+          <div
             onClick={() => scrollToSection('top')}
-            className="flex items-center gap-2.5 flex-shrink-0 group text-left cursor-pointer"
+            className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0 group text-left cursor-pointer select-none"
           >
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg shadow-sm transition-transform group-hover:scale-105 bg-gradient-to-br from-[#0B3B60] to-[#0284C7] text-white">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center font-black text-base sm:text-lg shadow-sm transition-transform group-hover:scale-105 bg-gradient-to-br from-[#0B3B60] to-[#0284C7] text-white">
               CG
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-lg sm:text-xl font-black tracking-tight font-heading text-[#0B3B60]">
+                <span className="text-base sm:text-xl font-black tracking-tight font-heading text-[#0B3B60]">
                   CliGraphics
                 </span>
                 <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 border border-amber-300 hidden xl:inline-block">
@@ -416,14 +428,14 @@ export const SiteHeader: React.FC = () => {
                 Promotional Products & Conference Supplies
               </p>
             </div>
-          </button>
+          </div>
 
-          {/* 2. ALL CATEGORIES (Standalone Dropdown Element) */}
-          <div className="relative hidden md:block" ref={dropdownRefA}>
+          {/* 2. ALL CATEGORIES (Dropdown on Desktop) */}
+          <div className="relative hidden lg:block" ref={dropdownRefA}>
             <button
               type="button"
               onClick={() => setCategoriesOpenA(!categoriesOpenA)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border shadow-xs ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all border shadow-xs ${
                 categoriesOpenA
                   ? 'bg-[#0B3B60] text-white border-[#0B3B60] ring-2 ring-sky-200'
                   : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 border-slate-300'
@@ -434,7 +446,7 @@ export const SiteHeader: React.FC = () => {
               <ChevronDown className={`w-3.5 h-3.5 transition-transform ${categoriesOpenA ? 'rotate-180 text-white' : 'text-slate-500'}`} />
             </button>
 
-            {/* Standalone Dropdown Panel (Grid Approach) */}
+            {/* Standalone Dropdown Panel */}
             {categoriesOpenA && (
               <div className="absolute left-0 top-full mt-2 w-[580px] sm:w-[640px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 text-left animate-in fade-in zoom-in-95 duration-150">
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 px-1">
@@ -456,21 +468,20 @@ export const SiteHeader: React.FC = () => {
                   </span>
                 </div>
 
-                {/* 3-Column Responsive Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                   {CATEGORIES.map((cat) => renderCategoryGridTile(cat, false))}
                 </div>
 
                 <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 px-1">
-                  <span>Static promotional catalog overview &bull; Browser preview</span>
+                  <span>Static promotional catalog overview &bull; Homepage Showcase</span>
                   <span className="font-bold text-[#0B3B60]">9 Disciplines Total</span>
                 </div>
               </div>
             )}
           </div>
 
-          {/* 3. MAIN NAVIGATION MENU (Integrated in Primary Header) */}
-          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* 3. MAIN NAVIGATION MENU (In-page scroll only) */}
+          <nav aria-label="Primary navigation" className="hidden xl:flex items-center gap-1 xl:gap-2">
             <button
               type="button"
               onClick={() => scrollToSection('top')}
@@ -501,17 +512,17 @@ export const SiteHeader: React.FC = () => {
             </button>
           </nav>
 
-          {/* 4. SEARCH BAR (Desktop) / SEARCH ICON (Tablet/Mobile) */}
-          <div className="flex-1 max-w-xs xl:max-w-sm hidden sm:block">
+          {/* 4. SEARCH BAR (Tablet & Desktop - Scrolls to featured products) */}
+          <div className="flex-1 max-w-[200px] sm:max-w-xs xl:max-w-sm hidden sm:block">
             <form onSubmit={handleSearchSubmit} className="relative w-full">
               <input
                 type="text"
-                placeholder="Search bags, lanyards, drinkware..."
+                placeholder="Search bags, lanyards, pens..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-20 py-2 rounded-full text-xs transition-all outline-none bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#0B3B60] focus:ring-2 focus:ring-sky-100"
+                className="w-full pl-8 pr-16 sm:pr-20 py-1.5 sm:py-2 rounded-full text-xs transition-all outline-none bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#0B3B60] focus:ring-2 focus:ring-sky-100"
               />
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <button
                 type="submit"
                 className="absolute right-1 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-[#0B3B60] hover:bg-[#072842] transition-colors"
@@ -521,9 +532,9 @@ export const SiteHeader: React.FC = () => {
             </form>
           </div>
 
-          {/* 5. CART ICON & MOBILE CONTROLS */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            {/* Mobile search toggle button */}
+          {/* 5. CART ICON & MOBILE CONTROLS (Static display badge) */}
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            {/* Mobile search toggle */}
             <button
               type="button"
               onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
@@ -533,25 +544,25 @@ export const SiteHeader: React.FC = () => {
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Cart Icon Display */}
+            {/* Static Demo Cart Display (No anchor navigation) */}
             <div
-              className="relative flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 cursor-default select-none"
+              className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 cursor-default select-none"
               title="Demo Cart"
             >
               <ShoppingCart className="w-4 h-4 text-[#0B3B60]" />
               <span className="hidden sm:inline">Demo Cart</span>
               {totalItemsCount > 0 && (
-                <span className="bg-[#E65100] text-white text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center -ml-1">
+                <span className="bg-[#E65100] text-white text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center -ml-0.5 sm:-ml-1">
                   {totalItemsCount}
                 </span>
               )}
             </div>
 
-            {/* Mobile Menu Hamburger */}
+            {/* Mobile / Tablet Menu Hamburger */}
             <button
               type="button"
               onClick={() => setMobileMenuOpenA(!mobileMenuOpenA)}
-              className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+              className="xl:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpenA ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -585,7 +596,7 @@ export const SiteHeader: React.FC = () => {
 
       {/* Mobile Drawer (Option A) */}
       {mobileMenuOpenA && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 animate-in slide-in-from-top-2 duration-150">
+        <div className="xl:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 animate-in slide-in-from-top-2 duration-150">
           {/* Standalone All Categories Accordion */}
           <div className="border border-slate-200 rounded-xl bg-slate-50 overflow-hidden">
             <button
@@ -606,7 +617,7 @@ export const SiteHeader: React.FC = () => {
             )}
           </div>
 
-          {/* Main Navigation Links */}
+          {/* Main Navigation Links (In-page scroll) */}
           <div className="space-y-1 text-sm">
             <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block px-2 mb-1">
               Main Menu
@@ -639,6 +650,12 @@ export const SiteHeader: React.FC = () => {
             >
               FAQ
             </button>
+            <div className="w-full text-left px-3 py-2 rounded-lg font-semibold text-sky-800 flex items-center justify-between bg-sky-50/50 cursor-default">
+              <span>Demo Cart</span>
+              <span className="bg-[#E65100] text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                {totalItemsCount}
+              </span>
+            </div>
           </div>
         </div>
       )}

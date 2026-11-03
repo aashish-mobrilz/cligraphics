@@ -14,6 +14,13 @@ const DesignThemeContext = createContext<DesignThemeContextType | undefined>(und
 
 export const DesignThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [direction, setDirectionState] = useState<DesignDirection>(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTheme = urlParams.get('theme');
+      if (urlTheme === 'option-a' || urlTheme === 'option-b') {
+        return urlTheme;
+      }
+    }
     const saved = localStorage.getItem('cligraphics_design_direction');
     return (saved === 'option-b' ? 'option-b' : 'option-a') as DesignDirection;
   });

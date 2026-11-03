@@ -54,4 +54,8 @@ coverage/
 .cache/
 .vite/
 .parcel-cache/
-
+/cligraphics_implementation_plan.md
+audit-screenshots/
+scripts/
+project-setup.xml
+daily_logs.md

@@ -16,7 +16,7 @@ export const ServicesPage: React.FC = () => {
             <Link to="/" className="hover:underline">Home</Link> / <strong className="text-slate-800">Conference Services</strong>
           </div>
           <h1 className={`text-3xl sm:text-5xl font-black text-slate-900 tracking-tight ${isOptionB ? 'font-serif' : 'font-heading'}`}>
-            Comprehensive Conference Services
+            Comprehensive Products Services
           </h1>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             In addition to custom promotional merchandise, CliGraphics delivers complete commercial printing, program book publishing, attendee swag kitting, and convention freight logistics.

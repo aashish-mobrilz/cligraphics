@@ -50,7 +50,7 @@ export const ProductFilters: React.FC<ProductFiltersProps> = ({
           onChange={(e) => onSortChange(e.target.value)}
           className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-slate-50 text-slate-800 focus:bg-white focus:ring-2 focus:ring-sky-500"
         >
-          <option value="featured">Featured Conference Supplies</option>
+          <option value="featured">Featured Products Supplies</option>
           <option value="price-low">Price: Low to High</option>
           <option value="price-high">Price: High to Low</option>
           <option value="name">Product Name (A-Z)</option>

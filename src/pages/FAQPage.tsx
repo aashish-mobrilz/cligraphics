@@ -32,7 +32,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     category: 'Printing & Direct Mail',
-    question: 'What commercial printing services does CliGraphics offer?',
+    question: 'What commercial printing services does CLI Graphics offer?',
     answer: 'We provide comprehensive print solutions from single flyer sheets to high-speed web-offset and digital printing for saddle-stitched and perfect-bound conference program books, daily agendas, and multifold registration brochures.',
   },
   {
@@ -42,13 +42,13 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     category: 'Company & Heritage',
-    question: 'How long has CliGraphics been in business?',
-    answer: 'CliGraphics is family-owned and was established in January, 1997. We are proudly celebrating 30 years of dedicated service to conference organizers and trade associations across North America.',
+    question: 'How long has CLI Graphics been in business?',
+    answer: 'CLI Graphics is family-owned and was established in January, 1997. We bring over 30 years of dedicated service to conference organizers and trade associations across North America.',
   },
   {
     category: 'Prototype Information',
     question: 'Is this an actual eCommerce store where I can place live orders?',
-    answer: 'This website is an interactive React + TypeScript demonstration prototype for CliGraphics.com. All ordering, customization, and checkout flows run locally in your browser for demonstration and approval purposes. No live transactions or payments are processed.',
+    answer: 'This website is an interactive React + TypeScript demonstration prototype for CLI Graphics. All ordering, customization, and checkout flows run locally in your browser for demonstration and approval purposes. No live transactions or payments are processed.',
   },
 ];
 

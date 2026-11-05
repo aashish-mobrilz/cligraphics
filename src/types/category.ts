@@ -9,6 +9,7 @@ export interface Category {
   type: CategoryType;
   iconName: string;
   itemCountLabel: string;
+  exploreLabel?: string;
   featuredBadge?: string;
   subcategories: string[];
 }

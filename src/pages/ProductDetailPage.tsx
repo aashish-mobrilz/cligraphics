@@ -415,7 +415,7 @@ export const ProductDetailPage: React.FC = () => {
           <div className="space-y-6 flex flex-col justify-between">
             <div>
               <span className="text-xs uppercase font-bold text-sky-700 tracking-wider">
-                {product.categoryName} &bull; Sample Catalog Item
+                {product.categoryName} &bull; Conference Catalog Selection
               </span>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
@@ -429,7 +429,7 @@ export const ProductDetailPage: React.FC = () => {
               {/* Volume Pricing Tiers Table */}
               <div className="mt-6 bg-slate-50 rounded-2xl border border-slate-200 p-4">
                 <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2">
-                  Volume Pricing Tiers (Illustrative Sample)
+                  Volume Pricing Tiers
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
                   {product.pricingTiers.map((tier, idx) => (
@@ -537,6 +537,22 @@ export const ProductDetailPage: React.FC = () => {
                     Total Estimated: <strong className="text-base text-slate-900 font-black ml-1">${(activeUnitPrice * quantity).toFixed(2)}</strong>
                   </div>
                 </div>
+
+                {/* Client-Requested Quantity Notice */}
+                <div className="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-950 flex items-start gap-2.5">
+                  <span className="font-bold text-amber-800 text-sm leading-none mt-0.5">&bull;</span>
+                  <div className="leading-relaxed">
+                    <span className="font-bold">For quantities over 1,000, please </span>
+                    <a href="tel:18002542663" className="font-bold text-sky-800 hover:text-[#0B3B60] underline">
+                      call
+                    </a>{' '}
+                    or{' '}
+                    <a href="mailto:orders@cligraphics.demo" className="font-bold text-sky-800 hover:text-[#0B3B60] underline">
+                      email
+                    </a>{' '}
+                    <span>for direct factory quote.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -546,7 +562,7 @@ export const ProductDetailPage: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Link
                     to={`/customize/${product.designerModelId || 'canvas-tote-pro'}`}
-                    className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#E65100] hover:bg-[#C64500] text-white shadow-md transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#E65100] hover:bg-[#C64500] text-white shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Palette className="w-4 h-4" />
                     <span>Customize Online in Designer</span>
@@ -555,20 +571,20 @@ export const ProductDetailPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleAddToCart}
-                    className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#0B3B60] hover:bg-[#072842] text-white shadow-sm transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#0B3B60] hover:bg-[#072842] text-white shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ShoppingCart className="w-4 h-4" />
-                    <span>Add Blank Demo Order</span>
+                    <span>Add Blank Order</span>
                   </button>
                 </div>
               ) : (
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#0B3B60] hover:bg-[#072842] text-white shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-xl text-center text-xs font-bold bg-[#0B3B60] hover:bg-[#072842] text-white shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  <span>Add {quantity} Units to Demo Cart</span>
+                  <span>Add {quantity} Units to Cart</span>
                 </button>
               )}
 

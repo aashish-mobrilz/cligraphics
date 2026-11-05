@@ -215,7 +215,7 @@ export const CustomizerPage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-amber-400 font-serif">
-                    CliGraphics Bag Atelier
+                    CLI Graphics Bag Atelier
                   </span>
                   <span className="text-stone-600">&bull;</span>
                   <span className="text-xs text-stone-400 font-serif">

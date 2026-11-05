@@ -9,7 +9,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Conference totes, convention messengers, and attendee bags.',
     type: 'product',
     iconName: 'ShoppingBag',
-    itemCountLabel: '24 Sample Styles',
+    itemCountLabel: 'Totes & Attendee Bags',
+    exploreLabel: 'Explore bags & totes →',
     featuredBadge: 'Online Customizer Available',
     subcategories: ['Conference Totes', 'Messenger Bags', 'Eco Cotton Shoppers', 'Backpacks & Cinch Bags', 'Zippered Portfolios']
   },
@@ -21,7 +22,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Custom printed neckstraps, badge reels & event credentials.',
     type: 'product',
     iconName: 'Tag',
-    itemCountLabel: '18 Sample Options',
+    itemCountLabel: 'Lanyards & Badges',
+    exploreLabel: 'Explore lanyards & badges →',
     featuredBadge: 'Conference Essential',
     subcategories: ['Full-Color Sublimation', 'Ribbed Polyester', 'Double-Clip Straps', 'Badge Holders & Sleeves', 'Custom Retractable Reels']
   },
@@ -33,7 +35,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Insulated tumblers, stainless bottles & ceramic mugs.',
     type: 'product',
     iconName: 'Coffee',
-    itemCountLabel: '32 Sample Models',
+    itemCountLabel: 'Bottles & Tumblers',
+    exploreLabel: 'Explore drinkware & bottles →',
     featuredBadge: 'Top Attendee Gift',
     subcategories: ['Vacuum Insulated Tumblers', 'Stainless Water Bottles', 'Ceramic Keynote Mugs', 'Eco Wheat-Straw Cups', 'Sport Bottles']
   },
@@ -45,7 +48,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Executive metal pens, soft-touch stylus & eco writing tools.',
     type: 'product',
     iconName: 'PenTool',
-    itemCountLabel: '40 Sample Items',
+    itemCountLabel: 'Executive & Seminar Pens',
+    exploreLabel: 'Explore pens & writing →',
     featuredBadge: 'High Volume Value',
     subcategories: ['Soft-Touch Metal Stylus', 'Executive Gift Pens', 'Seminar Gel Pens', 'Eco Bamboo Pens', 'Value Ballpoint Packs']
   },
@@ -57,7 +61,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Staff polos, event tees, zip fleeces & embroidered jackets.',
     type: 'product',
     iconName: 'Shirt',
-    itemCountLabel: '28 Sample Styles',
+    itemCountLabel: 'Staff & Event Apparel',
+    exploreLabel: 'Explore event apparel →',
     subcategories: ['Event Staff Polos', 'Crewneck Cotton Tees', 'Performance Wicking Tees', 'Quarter-Zip Fleeces', 'Volunteer Vests']
   },
   {
@@ -68,7 +73,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Power banks, charging cables, wireless pads & USB drives.',
     type: 'product',
     iconName: 'Cpu',
-    itemCountLabel: '20 Sample Tech Gifts',
+    itemCountLabel: 'Power & Tech Gear',
+    exploreLabel: 'Explore tech & chargers →',
     featuredBadge: 'VIP Sponsor Favorite',
     subcategories: ['Slim Power Banks', '3-in-1 Charging Cables', 'Wireless Fast Chargers', 'USB Drive Proceedings', 'Bluetooth Travel Speakers']
   },
@@ -80,7 +86,8 @@ export const CATEGORIES: Category[] = [
     shortDescription: 'Hardcover conference journals, seminar jotters & padfolios.',
     type: 'product',
     iconName: 'BookOpen',
-    itemCountLabel: '22 Sample Formats',
+    itemCountLabel: 'Journals & Notebooks',
+    exploreLabel: 'Explore journals & notebooks →',
     featuredBadge: 'Keynote Staple',
     subcategories: ['Hardcover Seminar Journals', 'Eco-Cork & Linen Notebooks', 'Spiral Wirebound Pads', 'Executive Padfolios', 'Pocket Jotters']
   },
@@ -93,6 +100,7 @@ export const CATEGORIES: Category[] = [
     type: 'service',
     iconName: 'Printer',
     itemCountLabel: 'Full Service Press',
+    exploreLabel: 'Explore commercial printing →',
     featuredBadge: 'Service Capability',
     subcategories: ['Conference Program Books', 'Registration Brochures', 'Single & Multi-Fold Flyers', 'Large Format Signage & Banners', 'Badge & Agenda Printing']
   },
@@ -105,6 +113,7 @@ export const CATEGORIES: Category[] = [
     type: 'service',
     iconName: 'Truck',
     itemCountLabel: 'Logistics & Kitting',
+    exploreLabel: 'Explore fulfillment & kitting →',
     featuredBadge: 'Service Capability',
     subcategories: ['Custom Conference Swag Kitting', 'Pre-Conference Direct Mail', 'Venue Bulk Delivery & Storage', 'VIP Attendee Dropship', 'Badge Assembly & Matching']
   }

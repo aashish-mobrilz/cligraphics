@@ -29,25 +29,19 @@ export const SiteHeader: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
-  // Dropdown states
-  const [categoriesOpenA, setCategoriesOpenA] = useState(false);
+  // Dropdown states (Option B)
   const [categoriesOpenB, setCategoriesOpenB] = useState(false);
 
   // Mobile menu states
   const [mobileMenuOpenA, setMobileMenuOpenA] = useState(false);
   const [mobileMenuOpenB, setMobileMenuOpenB] = useState(false);
-  const [mobileCategoriesExpandedA, setMobileCategoriesExpandedA] = useState(false);
   const [mobileCategoriesExpandedB, setMobileCategoriesExpandedB] = useState(false);
 
   // Click-outside refs
-  const dropdownRefA = useRef<HTMLDivElement>(null);
   const dropdownRefB = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRefA.current && !dropdownRefA.current.contains(event.target as Node)) {
-        setCategoriesOpenA(false);
-      }
       if (dropdownRefB.current && !dropdownRefB.current.contains(event.target as Node)) {
         setCategoriesOpenB(false);
       }
@@ -71,7 +65,6 @@ export const SiteHeader: React.FC = () => {
   const scrollToSection = (id: string) => {
     setMobileMenuOpenA(false);
     setMobileMenuOpenB(false);
-    setCategoriesOpenA(false);
     setCategoriesOpenB(false);
 
     if (id === 'top') {
@@ -418,106 +411,60 @@ export const SiteHeader: React.FC = () => {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="text-base sm:text-xl font-black tracking-tight font-heading text-[#0B3B60]">
-                  CliGraphics
-                </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 border border-amber-300 hidden xl:inline-block">
-                  30 Yrs
+                  CLI Graphics
                 </span>
               </div>
               <p className="text-[10px] leading-none hidden 2xl:block text-slate-500">
-                Promotional Products & Conference Supplies
+                Conference Merchandise & Printing Partner
               </p>
             </div>
           </div>
 
-          {/* 2. ALL CATEGORIES (Dropdown on Desktop) */}
-          <div className="relative hidden lg:block" ref={dropdownRefA}>
+          {/* 2. MAIN NAVIGATION MENU (Products | Services | About | FAQ | Contact) */}
+          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
             <button
               type="button"
-              onClick={() => setCategoriesOpenA(!categoriesOpenA)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all border shadow-xs ${
-                categoriesOpenA
-                  ? 'bg-[#0B3B60] text-white border-[#0B3B60] ring-2 ring-sky-200'
-                  : 'bg-slate-100 hover:bg-slate-200/80 text-slate-800 border-slate-300'
-              }`}
+              onClick={() => scrollToSection('product-categories')}
+              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              <LayoutGrid className={`w-4 h-4 ${categoriesOpenA ? 'text-amber-300' : 'text-[#0B3B60]'}`} />
-              <span>All Categories</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${categoriesOpenA ? 'rotate-180 text-white' : 'text-slate-500'}`} />
+              Products
             </button>
-
-            {/* Standalone Dropdown Panel */}
-            {categoriesOpenA && (
-              <div className="absolute left-0 top-full mt-2 w-[580px] sm:w-[640px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-50 text-left animate-in fade-in zoom-in-95 duration-150">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 px-1">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-[#0B3B60] text-white flex items-center justify-center shadow-xs">
-                      <LayoutGrid className="w-4 h-4 text-amber-300" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-slate-900 block leading-tight">
-                        Product & Service Categories
-                      </span>
-                      <span className="text-[10px] text-slate-500">
-                        9 Specialized Event Disciplines (7 Merchandise &bull; 2 Services)
-                      </span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-                    Category Grid
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
-                  {CATEGORIES.map((cat) => renderCategoryGridTile(cat, false))}
-                </div>
-
-                <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 px-1">
-                  <span>Static promotional catalog overview &bull; Homepage Showcase</span>
-                  <span className="font-bold text-[#0B3B60]">9 Disciplines Total</span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* 3. MAIN NAVIGATION MENU (In-page scroll only) */}
-          <nav aria-label="Primary navigation" className="hidden xl:flex items-center gap-1 xl:gap-2">
             <button
               type="button"
-              onClick={() => scrollToSection('top')}
-              className="text-xs font-bold px-3 py-1.5 rounded-lg text-[#0B3B60] bg-sky-50 transition-colors"
+              onClick={() => scrollToSection('services-section')}
+              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              Home
+              Services
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('about')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               About
             </button>
             <button
               type="button"
-              onClick={() => scrollToSection('contact')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-            >
-              Contact
-            </button>
-            <button
-              type="button"
               onClick={() => scrollToSection('faq')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               FAQ
             </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              Contact
+            </button>
           </nav>
 
-          {/* 4. SEARCH BAR (Tablet & Desktop - Scrolls to featured products) */}
-          <div className="flex-1 max-w-[200px] sm:max-w-xs xl:max-w-sm hidden sm:block">
+          {/* 3. SEARCH BAR (Tablet & Desktop) */}
+          <div className="flex-1 max-w-[180px] sm:max-w-xs xl:max-w-sm hidden sm:block">
             <form onSubmit={handleSearchSubmit} className="relative w-full">
               <input
                 type="text"
-                placeholder="Search bags, lanyards, pens..."
+                placeholder="Search bags, lanyards, programs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-8 pr-16 sm:pr-20 py-1.5 sm:py-2 rounded-full text-xs transition-all outline-none bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#0B3B60] focus:ring-2 focus:ring-sky-100"
@@ -525,15 +472,24 @@ export const SiteHeader: React.FC = () => {
               <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <button
                 type="submit"
-                className="absolute right-1 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-[#0B3B60] hover:bg-[#072842] transition-colors"
+                className="absolute right-1 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-[#0B3B60] hover:bg-[#072842] transition-colors cursor-pointer"
               >
                 Search
               </button>
             </form>
           </div>
 
-          {/* 5. CART ICON & MOBILE CONTROLS (Static display badge) */}
-          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+          {/* 4. ACTIONS: Request a Quote Button & Cart */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+            {/* Primary Action Button: Request a Quote */}
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="hidden md:inline-flex items-center gap-1 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-[#E65100] hover:bg-[#C64500] shadow-xs transition-all cursor-pointer"
+            >
+              Request a Quote
+            </button>
+
             {/* Mobile search toggle */}
             <button
               type="button"
@@ -544,13 +500,13 @@ export const SiteHeader: React.FC = () => {
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Static Demo Cart Display (No anchor navigation) */}
+            {/* Cart Display (Word 'Demo' removed) */}
             <div
               className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 cursor-default select-none"
-              title="Demo Cart"
+              title="Cart"
             >
               <ShoppingCart className="w-4 h-4 text-[#0B3B60]" />
-              <span className="hidden sm:inline">Demo Cart</span>
+              <span className="hidden sm:inline">Cart</span>
               {totalItemsCount > 0 && (
                 <span className="bg-[#E65100] text-white text-[11px] font-bold rounded-full w-5 h-5 flex items-center justify-center -ml-0.5 sm:-ml-1">
                   {totalItemsCount}
@@ -562,7 +518,7 @@ export const SiteHeader: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpenA(!mobileMenuOpenA)}
-              className="xl:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+              className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpenA ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -596,38 +552,25 @@ export const SiteHeader: React.FC = () => {
 
       {/* Mobile Drawer (Option A) */}
       {mobileMenuOpenA && (
-        <div className="xl:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 animate-in slide-in-from-top-2 duration-150">
-          {/* Standalone All Categories Accordion */}
-          <div className="border border-slate-200 rounded-xl bg-slate-50 overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setMobileCategoriesExpandedA(!mobileCategoriesExpandedA)}
-              className="w-full px-4 py-3 flex items-center justify-between text-xs font-bold text-slate-900 bg-slate-100"
-            >
-              <div className="flex items-center gap-2">
-                <LayoutGrid className="w-4 h-4 text-[#0B3B60]" />
-                <span>All Categories ({CATEGORIES.length})</span>
-              </div>
-              <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${mobileCategoriesExpandedA ? 'rotate-180' : ''}`} />
-            </button>
-            {mobileCategoriesExpandedA && (
-              <div className="p-3 bg-white grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {CATEGORIES.map((cat) => renderCategoryGridTile(cat, false))}
-              </div>
-            )}
-          </div>
-
-          {/* Main Navigation Links (In-page scroll) */}
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-4 animate-in slide-in-from-top-2 duration-150">
+          {/* Main Navigation Links (Products | Services | About | FAQ | Contact) */}
           <div className="space-y-1 text-sm">
             <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block px-2 mb-1">
               Main Menu
             </span>
             <button
               type="button"
-              onClick={() => scrollToSection('top')}
-              className="w-full text-left px-3 py-2 rounded-lg font-bold text-[#0B3B60] bg-sky-50"
+              onClick={() => scrollToSection('product-categories')}
+              className="w-full text-left px-3 py-2 rounded-lg font-bold text-slate-800 hover:bg-slate-100"
             >
-              Home
+              Products
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('services-section')}
+              className="w-full text-left px-3 py-2 rounded-lg font-bold text-slate-800 hover:bg-slate-100"
+            >
+              Services
             </button>
             <button
               type="button"
@@ -638,20 +581,31 @@ export const SiteHeader: React.FC = () => {
             </button>
             <button
               type="button"
-              onClick={() => scrollToSection('contact')}
-              className="w-full text-left px-3 py-2 rounded-lg font-medium text-slate-700 hover:bg-slate-100"
-            >
-              Contact
-            </button>
-            <button
-              type="button"
               onClick={() => scrollToSection('faq')}
               className="w-full text-left px-3 py-2 rounded-lg font-medium text-slate-700 hover:bg-slate-100"
             >
               FAQ
             </button>
-            <div className="w-full text-left px-3 py-2 rounded-lg font-semibold text-sky-800 flex items-center justify-between bg-sky-50/50 cursor-default">
-              <span>Demo Cart</span>
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="w-full text-left px-3 py-2 rounded-lg font-medium text-slate-700 hover:bg-slate-100"
+            >
+              Contact
+            </button>
+            
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-bold bg-[#E65100] hover:bg-[#C64500] text-white shadow-xs"
+              >
+                Request a Quote
+              </button>
+            </div>
+
+            <div className="w-full text-left px-3 py-2 rounded-lg font-semibold text-slate-800 flex items-center justify-between bg-slate-100 cursor-default">
+              <span>Cart</span>
               <span className="bg-[#E65100] text-white text-xs px-2 py-0.5 rounded-full font-bold">
                 {totalItemsCount}
               </span>

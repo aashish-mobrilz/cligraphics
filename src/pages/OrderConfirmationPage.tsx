@@ -31,7 +31,7 @@ export const OrderConfirmationPage: React.FC = () => {
               Sample Order Confirmation
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto leading-relaxed">
-              Thank you for testing the CliGraphics.com prototype customer shopping journey.
+              Thank you for testing the CLI Graphics prototype customer shopping journey.
             </p>
           </div>
 

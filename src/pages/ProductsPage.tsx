@@ -250,6 +250,27 @@ export const ProductsPage: React.FC = () => {
 
           {/* Products Content Area */}
           <div className="lg:col-span-3 space-y-6">
+            {/* Quantity Notice Banner */}
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-amber-800 text-base leading-none">&bull;</span>
+                <span className="font-bold">
+                  For quantities over 1,000, please{' '}
+                  <a href="tel:18002542663" className="text-sky-800 hover:text-[#0B3B60] underline font-bold">
+                    call
+                  </a>{' '}
+                  or{' '}
+                  <a href="mailto:orders@cligraphics.demo" className="text-sky-800 hover:text-[#0B3B60] underline font-bold">
+                    email
+                  </a>{' '}
+                  for direct factory quote.
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded border border-amber-300">
+                Factory Direct Pricing
+              </span>
+            </div>
+
             {/* Active Filters Bar / Results Count */}
             <div className="bg-white rounded-xl border border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between gap-3 text-xs">
               <span className="font-semibold text-slate-700">

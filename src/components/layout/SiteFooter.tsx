@@ -161,25 +161,22 @@ export const SiteFooter: React.FC = () => {
               <div className="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-sm">
                 CG
               </div>
-              <span className="text-xl font-black text-white tracking-tight">CliGraphics</span>
+              <span className="text-xl font-black text-white tracking-tight">CLI Graphics</span>
             </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              <span className="font-semibold text-white">One source for all your conference needs.</span> Delivering premium promotional merchandise, custom bags, conference lanyards, printing, and direct fulfillment since 1997.
+              <span className="font-semibold text-white">One source for all your conference and printing needs.</span> Delivering premium promotional merchandise, custom attendee bags, commercial printing, and dockside fulfillment since 1997.
             </p>
 
-            {/* Client Provided Badges - ENLARGED */}
+            {/* Client Heritage Statement */}
             <div className="flex flex-wrap gap-2 pt-2 text-xs">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-sky-300 font-bold text-xs border border-slate-700">
                 <ShieldCheck className="w-4 h-4 text-sky-400" />
-                Family Owned
+                Family Owned Since 1997
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-white font-bold text-xs border border-slate-700">
                 <Calendar className="w-4 h-4 text-amber-400" />
-                Established January, 1997
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-950/80 text-orange-300 font-bold text-xs border border-orange-800">
-                Celebrating 30 Years
+                Over 30 Years of Conference Experience
               </span>
             </div>
           </div>
@@ -232,20 +229,20 @@ export const SiteFooter: React.FC = () => {
           {/* Col 4: Trust & Assurance */}
           <div>
             <h4 className="font-bold text-white uppercase tracking-wider text-[11px] mb-3">
-              Why CliGraphics
+              Why CLI Graphics
             </h4>
             <ul className="space-y-2 text-xs">
               <li className="text-slate-400 flex items-start gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                <span>Family Owned Business</span>
+                <span>Family Owned Since 1997</span>
               </li>
               <li className="text-slate-400 flex items-start gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
-                <span>Established January, 1997</span>
+                <span>Over 30 Years of Conference Experience</span>
               </li>
               <li className="text-slate-400 flex items-start gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-orange-400 flex-shrink-0 mt-0.5" />
-                <span>Celebrating 30 Years (1997-2027)</span>
+                <span>Single Source: Swag, Press & Kitting</span>
               </li>
             </ul>
           </div>
@@ -256,7 +253,7 @@ export const SiteFooter: React.FC = () => {
       <div className="border-t border-slate-800 bg-slate-950 py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
-            &copy; 1997 &ndash; 2027 CliGraphics.com. Family Owned & Operated. All rights reserved.
+            &copy; 1997 &ndash; 2027 CLIGraphics.com. Family Owned & Operated. All rights reserved.
           </div>
           <div className="flex items-center gap-1.5 text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
             <Info className="w-3.5 h-3.5" />

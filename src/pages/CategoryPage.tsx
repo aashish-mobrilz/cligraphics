@@ -152,7 +152,7 @@ export const CategoryPage: React.FC = () => {
                   <CheckCircle2 className="w-10 h-10 text-amber-600 mx-auto" />
                   <h4 className="font-serif font-bold text-base">Consultation Request Recorded</h4>
                   <p className="text-xs text-stone-600 max-w-md mx-auto">
-                    This is an interactive static prototype demonstration. In a production deployment, a CliGraphics account specialist would review your conference timetable.
+                    This is an interactive static prototype demonstration. In a production deployment, a CLI Graphics account specialist would review your conference timetable.
                   </p>
                   <button
                     onClick={() => setQuoteSubmitted(false)}
@@ -175,8 +175,8 @@ export const CategoryPage: React.FC = () => {
                       <input
                         type="text"
                         required
-                        defaultValue="Jordan Vance"
-                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50"
+                        placeholder="e.g. Jordan Vance"
+                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50 text-slate-900 placeholder:text-stone-400"
                       />
                     </div>
                     <div>
@@ -184,8 +184,8 @@ export const CategoryPage: React.FC = () => {
                       <input
                         type="text"
                         required
-                        defaultValue="National Leadership Summit 2027"
-                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50"
+                        placeholder="e.g. National Leadership Summit 2027"
+                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50 text-slate-900 placeholder:text-stone-400"
                       />
                     </div>
                   </div>
@@ -196,16 +196,16 @@ export const CategoryPage: React.FC = () => {
                       <input
                         type="email"
                         required
-                        defaultValue="jvance@demo-conference.org"
-                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50"
+                        placeholder="e.g. jvance@conference.org"
+                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50 text-slate-900 placeholder:text-stone-400"
                       />
                     </div>
                     <div>
                       <label className="block font-serif font-semibold text-stone-800 mb-1">Estimated Attendee Count</label>
                       <input
                         type="text"
-                        defaultValue="2,500 Attendees"
-                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50"
+                        placeholder="e.g. 2,500 Attendees"
+                        className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50 text-slate-900 placeholder:text-stone-400"
                       />
                     </div>
                   </div>
@@ -214,8 +214,8 @@ export const CategoryPage: React.FC = () => {
                     <label className="block font-serif font-semibold text-stone-800 mb-1">Project Details & Dock Deadlines</label>
                     <textarea
                       rows={3}
-                      defaultValue="Need 2,500 perfect-bound daily program guides and attendee tote assemblies delivered to Chicago McCormick Place Dock by June 15."
-                      className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50"
+                      placeholder="Need 2,500 perfect-bound daily program guides and attendee tote assemblies delivered to Chicago McCormick Place Dock by June 15."
+                      className="w-full px-3 py-2 border border-stone-300 rounded-lg bg-stone-50 text-slate-900 placeholder:text-stone-400"
                     />
                   </div>
 
@@ -432,7 +432,7 @@ export const CategoryPage: React.FC = () => {
                 <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
                 <h4 className="font-bold text-sm">Demo Consultation Request Received!</h4>
                 <p className="text-xs">
-                  This is a static prototype demonstration. In a production system, a CliGraphics account specialist would review your event timeline.
+                  This is a static prototype demonstration. In a production system, a CLI Graphics account specialist would review your event timeline.
                 </p>
                 <button
                   onClick={() => setQuoteSubmitted(false)}
@@ -455,8 +455,8 @@ export const CategoryPage: React.FC = () => {
                     <input
                       type="text"
                       required
-                      defaultValue="Alex Morgan"
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                      placeholder="e.g. Alex Morgan"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
                   <div>
@@ -464,8 +464,8 @@ export const CategoryPage: React.FC = () => {
                     <input
                       type="text"
                       required
-                      defaultValue="Annual Healthcare Summit 2027"
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                      placeholder="e.g. Annual Healthcare Summit 2027"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
                 </div>
@@ -476,16 +476,16 @@ export const CategoryPage: React.FC = () => {
                     <input
                       type="email"
                       required
-                      defaultValue="amorgan@demo.com"
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                      placeholder="e.g. amorgan@organization.com"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
                   <div>
                     <label className="block font-semibold text-slate-700 mb-1">Estimated Attendee Count</label>
                     <input
                       type="text"
-                      defaultValue="1,200 Attendees"
-                      className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                      placeholder="e.g. 1,200 Attendees"
+                      className="w-full px-3 py-2 border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
                 </div>
@@ -494,8 +494,8 @@ export const CategoryPage: React.FC = () => {
                   <label className="block font-semibold text-slate-700 mb-1">Project Details & Deadlines</label>
                   <textarea
                     rows={3}
-                    defaultValue="Need 1,200 saddle-stitched program guides and pre-packed attendee bags delivered to Orlando Convention Center Dock by May 10."
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg"
+                    placeholder="Need 1,200 saddle-stitched program guides and pre-packed attendee bags delivered to Orlando Convention Center Dock by May 10."
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400"
                   />
                 </div>
 

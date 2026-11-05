@@ -19,7 +19,7 @@ export const SERVICES: ServiceOffering[] = [
     title: 'Conference Program Books & Proceedings',
     category: 'printing',
     shortSummary: 'High-speed web offset and digital production of saddle-stitched and perfect-bound event programs.',
-    fullOverview: 'From compact schedule-at-a-glance booklets to 300-page academic proceedings, CliGraphics provides comprehensive press production tailored to event deadlines. We accommodate last-minute speaker bio revisions and room changes with digital press runs.',
+    fullOverview: 'From compact schedule-at-a-glance booklets to 300-page academic proceedings, CLI Graphics provides comprehensive press production tailored to event deadlines. We accommodate last-minute speaker bio revisions and room changes with digital press runs.',
     deliverables: [
       'Saddle-stitched daily agenda booklets (8 to 64 pages)',
       'Perfect-bound thick annual meeting proceedings',
@@ -42,7 +42,7 @@ export const SERVICES: ServiceOffering[] = [
     title: 'Registration Brochures & Single-Sheet Flyers',
     category: 'printing',
     shortSummary: 'Commercial sheetfed printing from single promotional flyer sheets to multi-fold direct mail brochures.',
-    fullOverview: 'Spark attendance and arm event booths with crisp, vibrant collateral. Whether you need 500 sponsor flyer inserts or 50,000 trifold registration brochures mailed to industry members, CliGraphics delivers flawless color fidelity.',
+    fullOverview: 'Spark attendance and arm event booths with crisp, vibrant collateral. Whether you need 500 sponsor flyer inserts or 50,000 trifold registration brochures mailed to industry members, CLI Graphics delivers flawless color fidelity.',
     deliverables: [
       'Single flyer sheets (8.5" x 11", 5.5" x 8.5", custom cuts)',
       'Trifold, z-fold, gatefold, and accordion registration brochures',
@@ -86,7 +86,7 @@ export const SERVICES: ServiceOffering[] = [
     title: 'Direct Mail Campaigns & Venue Freight Logistics',
     category: 'fulfillment',
     shortSummary: 'End-to-end postal sorting, EDDM campaigns, and guaranteed direct-to-dock convention center freight shipping.',
-    fullOverview: 'We navigate complex convention center marshalling yards and advance warehouse deadlines so your team never arrives at empty registration counters. CliGraphics manages freight bills of lading, booth delivery labels, and post-conference return logistics.',
+    fullOverview: 'We navigate complex convention center marshalling yards and advance warehouse deadlines so your team never arrives at empty registration counters. CLI Graphics manages freight bills of lading, booth delivery labels, and post-conference return logistics.',
     deliverables: [
       'Direct mail postcard & brochure postal sorting with NCOA address hygiene',
       'Every Door Direct Mail (EDDM) local convention market blitzes',

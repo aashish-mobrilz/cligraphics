@@ -24,7 +24,7 @@ export const AboutPage: React.FC = () => {
           </h1>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl font-medium">
-            For three decades, CliGraphics has partnered with conference organizers, corporate event planners, associations, and summit hosts to deliver reliable promotional products, custom bags, printing, and direct logistics.
+            For three decades, CLI Graphics has partnered with conference organizers, corporate event planners, associations, and summit hosts to deliver reliable promotional products, custom bags, printing, and direct logistics.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-700 leading-relaxed">
             <div className="space-y-3">
               <p>
-                Unlike generic novelty distributors, CliGraphics specializes in the stringent timelines of conference production. We know that late shipments to a closed trade show floor are worthless, which is why every event order is tracked against strict staging dates.
+                Unlike generic novelty distributors, CLI Graphics specializes in the stringent timelines of conference production. We know that late shipments to a closed trade show floor are worthless, which is why every event order is tracked against strict staging dates.
               </p>
               <p>
                 From attendee badge lanyards and custom keynote notebooks to high-volume convention tote bags, our merchandise is vetted for durability, comfort, and photorealistic brand fidelity.

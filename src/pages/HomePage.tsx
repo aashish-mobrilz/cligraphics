@@ -5,7 +5,6 @@ import { PRODUCTS } from '../data/products';
 import { ConferenceHeroSvg } from '../components/common/ConferenceHeroSvg';
 import { CategoryCircleVisual } from '../components/common/CategoryCircleVisual';
 import { ProductCard } from '../components/product/ProductCard';
-import { ProductImageMockup } from '../components/common/ProductImageMockup';
 import { HomeFAQSection } from '../components/home/HomeFAQSection';
 import { HomeContactSection } from '../components/home/HomeContactSection';
 import {
@@ -19,13 +18,15 @@ import {
   Calendar,
   ArrowRight,
   ChevronRight,
+  Phone,
+  Layers,
+  Award,
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { isOptionB } = useDesignTheme();
 
   const featuredProducts = PRODUCTS.slice(0, 4);
-  const customizableBags = PRODUCTS.filter((p) => p.customizable);
   const [optionBFilter, setOptionBFilter] = React.useState<'all' | 'products' | 'services'>('all');
 
   const getRomanIndex = (id: string) => {
@@ -393,7 +394,7 @@ export const HomePage: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base text-stone-600 font-serif italic max-w-2xl mx-auto leading-relaxed">
-            Founded in January, 1997, CliGraphics has spent three decades refining the craft of promotional event supplies, full-service commercial press printing, and convention center logistics.
+            Founded in January, 1997, CLI Graphics has spent three decades refining the craft of promotional event supplies, full-service commercial press printing, and convention center logistics.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -416,65 +417,61 @@ export const HomePage: React.FC = () => {
   }
 
   // ========================================================
-  // OPTION A: 4IMPRINT-STYLE PRODUCT-LED COMMERCIAL HOMEPAGE
-  // Bright, clean 2-column layout & Circular Categories
+  // OPTION A: REFINED PRODUCT-LED & CONFERENCE PARTNER HOMEPAGE
+  // Reconciled per Client CoPilot Review & Implementation Brief
   // ========================================================
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* ======================================================== */}
-      {/* 1. HERO SECTION (2-Column Daylight Layout, NO background text overlap) */}
+      {/* 1. HERO SECTION (Tightened 2-Column Layout, Real Photography) */}
       {/* ======================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-slate-50 border-b border-slate-200 py-12 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-slate-50  pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-10 lg:pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Headlines & Actions */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              {/* Heritage Badge - ENLARGED */}
-              <div className="inline-flex flex-wrap items-center gap-2.5 px-2 py-1 rounded-full bg-white border-2 border-amber-200 shadow-xs text-sm sm:text-base font-bold text-slate-900">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-                <span className="text-amber-800 font-bold tracking-wide text-xs sm:text-sm md:text-base">
-                  Established January, 1997
-                </span>
-                <span className="text-slate-300 font-black">&bull;</span>
-                <span className="text-orange-600 font-bold tracking-wide text-xs sm:text-sm md:text-base">
-                  Celebrating 30 Years
-                </span>
-              </div>
-
-              {/* Primary Tagline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight font-heading text-slate-900">
-                One source for all your conference needs.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Client-Approved Copy & Actions */}
+            <div className="lg:col-span-7 space-y-5 text-left">
+              {/* Primary Tagline - Exact Client Approved Copy */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight leading-[1.15] font-heading text-slate-900">
+                One source for all your conference needs. 
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl font-medium">
-                From conference tote bags with live online preview to attendee lanyards, journals, high-speed program book printing, and turnkey venue direct fulfillment.
-              </p>
+              {/* Supporting Copy - Exact Client Approved Copy */}
+              <div className="space-y-2 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
+                <p>
+                  From conference tote bags to attendee lanyards, journals, pens, tech products
+                </p>
+                <p className="font-medium text-slate-800">
+                  All printing requirements including registration brochures, program books, product sheets and all direct mail and fulfillment services
+                </p>
+              </div>
 
-              {/* Hero CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              {/* Hero CTAs: Red Primary + Request a Quote Secondary */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
+                {/* Red Primary Button (Explores Products) */}
                 <button
                   type="button"
                   onClick={() => scrollToSection('product-categories')}
-                  className="px-6 py-3.5 rounded-xl text-sm font-bold shadow-md transition-all flex items-center gap-2 bg-[#E65100] hover:bg-[#C64500] text-white cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white cursor-pointer ring-2 ring-red-500/20 active:scale-98"
                 >
                   <Palette className="w-4 h-4" />
-                  <span>Explore Product Categories</span>
+                  <span>Explore Products</span>
                 </button>
 
+                {/* Secondary Button: Request a Quote */}
                 <button
                   type="button"
-                  onClick={() => scrollToSection('featured-products')}
-                  className="px-6 py-3.5 rounded-xl text-sm font-bold bg-white hover:bg-slate-50 text-[#0B3B60] border border-slate-300 transition-all flex items-center gap-2 shadow-xs cursor-pointer"
+                  onClick={() => scrollToSection('contact')}
+                  className="px-6 py-3.5 rounded-xl text-sm font-bold bg-white hover:bg-slate-50 text-slate-800 hover:text-[#E65100] border-2 border-slate-300 hover:border-[#E65100] transition-all flex items-center gap-2 shadow-xs cursor-pointer active:scale-98"
                 >
-                  <span>Browse Supplies</span>
+                  <span>Request a Quote</span>
                 </button>
               </div>
 
-              {/* Trust Highlights */}
-              <div className="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-semibold text-slate-700">
+              {/* Trust Pillars */}
+              <div className="pt-4 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-semibold text-slate-700">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-sky-700 flex-shrink-0" />
-                  <span>Family Owned Business</span>
+                  <span>Family Owned Since 1997</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FileCheck className="w-4 h-4 text-sky-700 flex-shrink-0" />
@@ -487,10 +484,21 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Clean Staging Card (Dedicated graphic, no text collisions) */}
+            {/* Right Column: High-Quality Conference Photography */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <div className="w-full max-w-lg bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden">
-                <ConferenceHeroSvg className="w-full h-auto" />
+              <div className="w-full max-w-lg bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg relative group">
+                <img
+                  src="/images/conference/hero-image.png"
+                  alt="Conference attendees with badges, lanyards, and overhead directional signage"
+                  className="w-full h-64 sm:h-72 lg:h-84 object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                />
+                {/* <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-900/40 to-transparent p-4 text-white">
+                  <div className="flex items-center gap-2 text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>On-Site Conference Partner &bull; Venue Delivery</span>
+                  </div>
+                  <p className="text-[11px] text-slate-200 mt-0.5">Attendee badges, lanyards, programs & signage</p>
+                </div> */}
               </div>
             </div>
           </div>
@@ -498,53 +506,105 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ======================================================== */}
-      {/* 2. PRODUCT CATEGORIES (Circular Shape Similar to 4imprint) */}
+      {/* 2. QUANTITY NOTICE BANNER (Client Mandatory Statement) */}
       {/* ======================================================== */}
-      <section id="product-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#0B3B60] via-sky-900 to-[#0B3B60] text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-4 border border-sky-800">
+          <div className="flex items-center gap-3.5 text-center sm:text-left">
+            <div className="w-9 h-9 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-base flex-shrink-0 shadow-xs">
+              ★
+            </div>
+            <div>
+              <span className="text-xs uppercase font-extrabold tracking-wider text-amber-300 block">
+                Direct Factory Volume Program
+              </span>
+              <p className="text-xs sm:text-sm text-slate-100 font-medium">
+                For quantities over 1,000, please{' '}
+                <a
+                  href="tel:18002542663"
+                  className="font-bold underline text-amber-300 hover:text-white transition-colors"
+                >
+                  call
+                </a>{' '}
+                or{' '}
+                <a
+                  href="mailto:orders@cligraphics.demo"
+                  className="font-bold underline text-amber-300 hover:text-white transition-colors"
+                >
+                  email
+                </a>{' '}
+                for direct factory quote.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 flex-shrink-0">
+            <a
+              href="tel:18002542663"
+              className="px-3.5 py-2 rounded-xl bg-white text-[#0B3B60] font-bold text-xs hover:bg-slate-100 transition-colors flex items-center gap-1.5 shadow-xs"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#0B3B60]" />
+              <span>1-800-CLI-CONF</span>
+            </a>
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs transition-colors shadow-xs cursor-pointer"
+            >
+              Request a Quote
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 3. PRODUCT CATEGORIES (Visible early on desktop fold) */}
+      {/* ======================================================== */}
+      <section id="product-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 scroll-mt-20">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
               Promotional Merchandise & Event Printing
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1 font-heading">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
               Product Categories
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Quickly identify conference essentials. Click any category circle for a direct link to full catalog selections.
+              Quickly identify conference essentials. Click any category circle for direct selections.
             </p>
           </div>
           <button
             type="button"
             onClick={() => scrollToSection('featured-products')}
-            className="text-xs font-bold text-sky-800 hover:text-orange-600 uppercase tracking-wider flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-sky-800 hover:text-[#E65100] uppercase tracking-wider flex items-center gap-1 cursor-pointer transition-colors"
           >
             All 9 Categories Index <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* 9 Category Circular Grid Similar to 4imprint */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-6 sm:gap-x-8 justify-items-center">
+        {/* 9 Category Circular Grid (Balanced Centered Alignment) */}
+        <div className="flex flex-wrap justify-center gap-y-10 gap-x-6 sm:gap-x-8 md:gap-x-10 max-w-6xl mx-auto">
           {CATEGORIES.map((cat) => (
             <div
               key={cat.id}
-              onClick={() => scrollToSection('featured-products')}
-              className="group flex flex-col items-center text-center cursor-pointer select-none"
+              onClick={() => scrollToSection(cat.type === 'service' ? 'services-section' : 'featured-products')}
+              className="group flex flex-col items-center text-center cursor-pointer select-none w-36 sm:w-40 md:w-48"
             >
-              {/* Luminous, High-End Circular Frame with Ambient Soft Shadow */}
-              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-white border-2 border-slate-200/90 group-hover:border-[#E65100] shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover:shadow-[0_20px_45px_rgba(230,81,0,0.22)] transition-all duration-500 p-2 sm:p-3 flex items-center justify-center relative group-hover:-translate-y-2 group-hover:scale-105">
+              {/* High-End Circular Frame with Ambient Soft Shadow */}
+              <div className="w-28 h-28 sm:w-34 sm:h-34 md:w-40 md:h-40 rounded-full bg-white border-2 border-slate-200/90 group-hover:border-[#E65100] shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover:shadow-[0_16px_36px_rgba(230,81,0,0.22)] transition-all duration-300 p-2 sm:p-3 flex items-center justify-center relative group-hover:-translate-y-1.5 group-hover:scale-105">
                 <div className="absolute inset-1.5 rounded-full border border-slate-100 group-hover:border-orange-100 pointer-events-none transition-colors" />
                 <CategoryCircleVisual categoryId={cat.id} variant="promotional" className="w-full h-full" />
               </div>
 
-              {/* Category Title & Count */}
-              <h3 className="mt-3.5 font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#E65100] transition-colors leading-snug">
+              {/* Category Title & Clean Label */}
+              <h3 className="mt-3 font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#E65100] transition-colors leading-snug">
                 {cat.name}
               </h3>
               <span className="text-[11px] text-slate-500 mt-0.5">
-                {cat.type === 'service' ? 'Service Press' : cat.itemCountLabel}
+                {cat.itemCountLabel}
               </span>
-              <span className="text-[10px] font-bold text-[#E65100] opacity-0 group-hover:opacity-100 transition-opacity pt-0.5">
-                Product Details &darr;
+              <span className="text-[10px] font-bold text-[#E65100] opacity-0 group-hover:opacity-100 transition-opacity pt-0.5 flex items-center gap-0.5">
+                {cat.exploreLabel || `Explore ${cat.name.toLowerCase()} &rarr;`}
               </span>
             </div>
           ))}
@@ -552,149 +612,34 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ======================================================== */}
-      {/* 3. CORE INTERACTIVE CUSTOMIZER FEATURE SPOTLIGHT */}
-      {/* ======================================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gradient-to-br from-blue-50/70 via-white to-amber-50/40 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold border border-orange-300">
-                <Palette className="w-3.5 h-3.5 text-orange-600" />
-                <span>Signature Online Feature</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight font-heading text-slate-900">
-                Custom Conference Bag Program
-              </h2>
-
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Design attendee convention bags directly in your web browser. Upload your logo, scale and rotate your artwork, check printable boundaries, and preview your design on realistic tote and messenger bag models.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                {[
-                  { step: '1', title: 'Choose Bag & Color', desc: 'Select canvas tote, messenger, or eco shopper' },
-                  { step: '2', title: 'Select Front or Back', desc: 'Independent imprint zones on both sides' },
-                  { step: '3', title: 'Upload Your Artwork', desc: 'Drag, scale, and rotate your high-res logo' },
-                  { step: '4', title: 'Verify Printable Area', desc: 'Real-time boundary bounds checking' },
-                  { step: '5', title: 'Confirm & Demo Cart', desc: 'Add customized line items with design snapshot' },
-                ].map((item) => (
-                  <div key={item.step} className="bg-white border border-slate-200 rounded-xl p-3 flex items-start gap-2.5 shadow-2xs">
-                    <span className="w-5 h-5 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center flex-shrink-0 text-[11px]">
-                      {item.step}
-                    </span>
-                    <div>
-                      <strong className="text-slate-900 block font-semibold">{item.title}</strong>
-                      <span className="text-slate-500 text-[11px]">{item.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#E65100] hover:bg-[#C64500] text-white rounded-xl text-sm font-bold shadow-md transition-all cursor-pointer"
-                >
-                  <Palette className="w-4 h-4" />
-                  <span>Launch Interactive Bag Designer &rarr;</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Sample Bag Showcase Card */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden">
-              <div className="text-center mb-4">
-                <span className="text-[11px] uppercase tracking-wider text-orange-600 font-bold">
-                  Conference Supplies Prototype
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 mt-1">
-                  Executive Conference Canvas Tote
-                </h3>
-              </div>
-
-              <div className="relative aspect-square max-w-sm mx-auto flex items-center justify-center rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-inner p-4">
-                <ProductImageMockup
-                  imageKey={customizableBags[0]?.primaryImage || 'bag-tote-front'}
-                  productSlug={customizableBags[0]?.slug}
-                  selectedColorHex={customizableBags[0]?.availableColors?.[0]?.hex || '#0B3B60'}
-                  className="w-full h-full object-cover rounded-md"
-                />
-              </div>
-
-              <div className="mt-4 text-center">
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('contact')}
-                  className="text-xs font-bold text-[#0B3B60] hover:text-[#E65100] flex items-center justify-center gap-1 mx-auto cursor-pointer"
-                >
-                  Customize This Tote Live <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================== */}
-      {/* 4. FEATURED BESTSELLERS */}
-      {/* ======================================================== */}
-      <section id="featured-products" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
-              Popular Attendee Favorites
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
-              Featured Products Supplies
-            </h2>
-          </div>
-          <button
-            type="button"
-            onClick={() => scrollToSection('product-categories')}
-            className="text-xs font-bold text-sky-800 hover:text-orange-600 uppercase tracking-wider flex items-center gap-1 cursor-pointer"
-          >
-            All Categories <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
-
-      {/* ======================================================== */}
-      {/* 5. PRINTING & FULFILLMENT SERVICES */}
+      {/* 4. MORE THAN MERCHANDISE (Renamed per Client CoPilot Review) */}
       {/* ======================================================== */}
       <section id="services-section" className="bg-slate-100 border-y border-slate-200 py-16 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
-              Beyond Merchandise
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-800 block">
+              BEYOND MERCHANDISE
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
-              Comprehensive Products Services
+              More Than Merchandise
             </h2>
-            <p className="text-xs text-slate-600 mt-2">
-              From web-offset printed program guides to turnkey registration kit fulfillment delivered right to your convention center dock.
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              From program printing to attendee kit fulfillment, CLI Graphics can manage the details from production through delivery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Service 1: Printing */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs flex flex-col justify-between">
+            {/* Service Card 1: Commercial Printing */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4">
                   <Printer className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  Full Commercial Printing
+                  Commercial Printing
                 </h3>
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  High-speed digital and web-offset printing for all event collateral. We handle single-sheet sponsor flyers, multifold registration brochures, daily agenda guides, and perfect-bound conference proceedings.
+                  Programs, brochures, session agendas, and on-site event collateral produced with high-speed digital and web-offset precision.
                 </p>
 
                 <ul className="mt-4 space-y-2 text-xs text-slate-700">
@@ -717,24 +662,24 @@ export const HomePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => scrollToSection('contact')}
-                  className="text-xs font-bold text-sky-800 hover:text-orange-600 flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-bold text-slate-800 hover:text-[#E65100] flex items-center gap-1 cursor-pointer transition-colors"
                 >
-                  Explore Commercial Press Capabilities &rarr;
+                  Request Print Specifications & Quote &rarr;
                 </button>
               </div>
             </div>
 
-            {/* Service 2: Fulfillment & Direct Mail */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs flex flex-col justify-between">
+            {/* Service Card 2: Fulfillment & Direct Mail */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4">
                   <Truck className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  Fulfillment & Direct Mail Services
+                  Fulfillment & Direct Mail
                 </h3>
                 <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                  Turnkey attendee swag kitting, custom box packing, pre-event promotional direct mail campaigns, and guaranteed direct-to-dock convention center freight logistics.
+                  Turnkey attendee kit kitting, packed and delivered directly to your event venue with dock check-in coordination.
                 </p>
 
                 <ul className="mt-4 space-y-2 text-xs text-slate-700">
@@ -757,9 +702,9 @@ export const HomePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => scrollToSection('contact')}
-                  className="text-xs font-bold text-amber-800 hover:text-orange-600 flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-bold text-slate-800 hover:text-[#E65100] flex items-center gap-1 cursor-pointer transition-colors"
                 >
-                  Explore Dockside Logistics Capabilities &rarr;
+                  Consult Dockside Logistics & Kitting &rarr;
                 </button>
               </div>
             </div>
@@ -768,40 +713,323 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ======================================================== */}
-      {/* 6. TRUST & BRAND HERITAGE SECTION */}
+      {/* 5. WHY CLI GRAPHICS (One Partner. Fewer Moving Parts.) */}
       {/* ======================================================== */}
-      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20">
-        <div className="bg-gradient-to-br from-white via-sky-50/40 to-amber-50/30 border-2 border-slate-200 rounded-3xl p-8 sm:p-12 shadow-md relative overflow-hidden">
-          <div className="max-w-2xl relative z-10 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs sm:text-sm font-bold">
-              <ShieldCheck className="w-4 h-4 text-amber-700" />
-              <span>Family Owned &bull; Celebrating 30 Years (1997 &ndash; 2027)</span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-800 block">
+            WHY CLI GRAPHICS
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
+            One Partner. Fewer Moving Parts.
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+            Planning a conference comes with enough deadlines. CLI Graphics brings promotional products, commercial printing and venue-direct fulfillment together through one experienced partner.
+          </p>
+        </div>
+
+        {/* 4 Concise Proof Points */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-sky-300 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center mb-3">
+              <Calendar className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-base text-slate-900">30 Years of Experience</h3>
+            <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+              Serving conference and event clients since 1997 with tested production schedules.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-sky-300 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-3">
+              <Layers className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-base text-slate-900">One Source</h3>
+            <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+              Merchandise, commercial printing and fulfillment under one coordinated roof.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-sky-300 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-3">
+              <Award className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-base text-slate-900">Conference Expertise</h3>
+            <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+              Solutions designed around event schedules, speaker updates, and hard venue deadlines.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-sky-300 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center mb-3">
+              <Truck className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-base text-slate-900">Venue-Direct Delivery</h3>
+            <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+              Materials organized, labeled, and delivered directly to your convention dock.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 6. RECENT WORK / PROJECT GALLERY ("See Our Work" - Bright Clean Presentation) */}
+      {/* ======================================================== */}
+      <section id="see-our-work" className="bg-slate-50 border-y border-slate-200 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-800 block">
+              PROVEN CONFERENCE EXECUTION
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
+              See Our Work
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Real-world conference registration packages, high-speed offset printing, and venue-ready fulfillment delivered on time across North America.
+            </p>
+          </div>
+
+          {/* 3 Large Photograph Cards from Client Assets - Bright & Clean */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Registration Kits */}
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col">
+              <div className="h-60 bg-slate-100 overflow-hidden relative border-b border-slate-100">
+                <img
+                  src="/images/conference/registration-kits.jpg"
+                  alt="Conference Registration Kits with branded tote, notebooks, lanyards, and drinkware"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#0B3B60] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200 shadow-2xs">
+                  Custom Kit Assembly
+                </span>
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#E65100] transition-colors">
+                    Conference Registration Kits
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                    Custom totes, badges, programs and attendee materials curated and packaged for smooth on-site badge pickup.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 text-xs font-semibold text-slate-700 group-hover:text-[#E65100] flex items-center justify-between transition-colors">
+                  <span>Turnkey Swag Kitting</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              One Partner for Every Conference Deadline
-            </h2>
+            {/* Card 2: Event Printing */}
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col">
+              <div className="h-60 bg-slate-100 overflow-hidden relative border-b border-slate-100">
+                <img
+                  src="/images/conference/event-printing.jpg"
+                  alt="Event Printing program booklets and conference proceedings"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#0B3B60] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200 shadow-2xs">
+                  High-Speed Press
+                </span>
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#E65100] transition-colors">
+                    Event Printing
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                    Programs, brochures and on-site collateral produced with crisp color fidelity, saddle-stitching, and rapid turnarounds.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 text-xs font-semibold text-slate-700 group-hover:text-[#E65100] flex items-center justify-between transition-colors">
+                  <span>Web & Digital Press</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </div>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Established in January, 1997, CliGraphics brings 30 years of family-owned dedication to conferences, annual general meetings, and trade show events across North America.
-            </p>
-
-            <div className="pt-2 flex flex-wrap gap-3">
-              <span className="px-5 py-2.5 rounded-xl bg-[#0B3B60] text-white text-xs sm:text-sm font-bold shadow-xs">
-                Family Owned & Operated Since 1997
-              </span>
-              <span className="px-5 py-2.5 rounded-xl bg-white text-slate-800 text-xs sm:text-sm font-bold border border-slate-300 shadow-xs">
-                One Source for All Your Conference Needs
-              </span>
+            {/* Card 3: Venue-Ready Fulfillment */}
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col">
+              <div className="h-60 bg-slate-100 overflow-hidden relative border-b border-slate-100">
+                <img
+                  src="/images/conference/venue-fulfillment.jpg"
+                  alt="Venue-Ready Fulfillment materials kitted, packed, and organized for event shipment"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#0B3B60] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200 shadow-2xs">
+                  Direct Dock Logistics
+                </span>
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#E65100] transition-colors">
+                    Venue-Ready Fulfillment
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                    Kitted, packed and delivered directly to your event hall or hotel loading dock with complete freight tracking.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 text-xs font-semibold text-slate-700 group-hover:text-[#E65100] flex items-center justify-between transition-colors">
+                  <span>Guaranteed Event Delivery</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. CONFERENCE PLANNING FAQ SECTION */}
+      {/* ======================================================== */}
+      {/* 7. COMPANY STORY / 30 YEARS OF EXPERIENCE (50/50 Balanced Section) */}
+      {/* ======================================================== */}
+      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20">
+        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left 50%: Story & Meaningful Action Buttons */}
+            <div className="lg:col-span-6 space-y-5 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-900 border border-sky-200 text-xs font-bold">
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-700" />
+                <span>Family Owned Since 1997</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 font-heading">
+                One Partner for Every Conference Deadline
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Established in 1997, CLI Graphics brings over 30 years of family-owned dedication to conferences, annual general meetings, and trade show events across North America.
+              </p>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                From high-speed program book press runs to multi-item registration kits, we coordinate every detail under one roof so your event team can focus on the program.
+              </p>
+
+              {/* Stat Highlights */}
+              <div className="grid grid-cols-3 gap-3 pt-2">
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                  <span className="block text-xl font-black text-[#0B3B60]">30+</span>
+                  <span className="text-[11px] text-slate-500 font-medium">Years Active</span>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                  <span className="block text-xl font-black text-[#0B3B60]">100%</span>
+                  <span className="text-[11px] text-slate-500 font-medium">On-Time Staging</span>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                  <span className="block text-xl font-black text-[#0B3B60]">1</span>
+                  <span className="text-[11px] text-slate-500 font-medium">Accountable Partner</span>
+                </div>
+              </div>
+
+              {/* Action Buttons (Actionable CTAs instead of marketing statements) */}
+              <div className="pt-3 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('contact')}
+                  className="px-5 py-3 rounded-xl bg-[#E65100] hover:bg-[#C64500] text-white text-xs sm:text-sm font-bold shadow-md transition-all cursor-pointer"
+                >
+                  Request a Quote
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('see-our-work')}
+                  className="px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 hover:text-[#E65100] text-xs sm:text-sm font-bold border border-slate-300 hover:border-[#E65100] shadow-xs transition-all cursor-pointer"
+                >
+                  Our Story & Work
+                </button>
+              </div>
+            </div>
+
+            {/* Right 50%: Balanced Production Photograph */}
+            <div className="lg:col-span-6 flex items-center justify-center">
+              <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md relative bg-slate-100">
+                <img
+                  src="/images/conference/venue.png"
+                  alt="CLI Graphics completed conference materials and packed attendee kit"
+                  className="w-full h-80 sm:h-96 object-cover object-center"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-transparent p-4 text-white">
+                  <span className="text-xs font-bold block">Production & Assembly Center</span>
+                  <span className="text-[11px] text-slate-300">Custom bags, credentials, print guides & venue-direct packing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 8. CUSTOMER PROOF / TESTIMONIALS (B2B Credibility) */}
+      {/* ======================================================== */}
+      <section className="bg-slate-100 border-y border-slate-200 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-800 block">
+              CLIENT REPUTATION
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
+              Trusted for Conferences Across North America
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              See how conference planners, associations, and event managers count on CLI Graphics when deadlines cannot slip.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center text-amber-500">
+                  {'★★★★★'}
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed italic">
+                  "Having our custom totes, badge lanyards, and 80-page program booklets delivered directly to our convention hotel dock by one partner saved our team dozens of hours."
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-slate-100">
+                <strong className="block text-xs font-bold text-slate-900">Director of Events</strong>
+                <span className="text-[11px] text-slate-500">National Healthcare Association</span>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center text-amber-500">
+                  {'★★★★★'}
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed italic">
+                  "When our speaker lineup changed 72 hours before opening remarks, CLI Graphics reprinted our daily schedules and had them on-site with zero drama."
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-slate-100">
+                <strong className="block text-xs font-bold text-slate-900">Operations Lead</strong>
+                <span className="text-[11px] text-slate-500">Annual Tech & Innovation Summit</span>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center text-amber-500">
+                  {'★★★★★'}
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed italic">
+                  "Over 2,200 attendee welcome kits assembled, packed, and delivered to the venue dock precisely as scheduled. Flawless execution from a family-owned team."
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-slate-100">
+                <strong className="block text-xs font-bold text-slate-900">VP Meetings & Conventions</strong>
+                <span className="text-[11px] text-slate-500">Global Trade Council</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* 8. FAQ SECTION */}
+      {/* ======================================================== */}
       <HomeFAQSection />
 
-      {/* 8. CONTACT & SAMPLE REQUEST SECTION */}
+      {/* ======================================================== */}
+      {/* 9. FINAL CTA & CONTACT SECTION */}
+      {/* ======================================================== */}
       <HomeContactSection />
     </div>
   );

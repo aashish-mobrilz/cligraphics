@@ -15,11 +15,14 @@ export const ServicesPage: React.FC = () => {
           <div className="text-xs text-slate-500">
             <Link to="/" className="hover:underline">Home</Link> / <strong className="text-slate-800">Conference Services</strong>
           </div>
-          <h1 className={`text-3xl sm:text-5xl font-black text-slate-900 tracking-tight ${isOptionB ? 'font-serif' : 'font-heading'}`}>
-            Comprehensive Products Services
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-800 block">
+            BEYOND MERCHANDISE
+          </span>
+          <h1 className={`text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mt-1 ${isOptionB ? 'font-serif' : 'font-heading'}`}>
+            More Than Merchandise
           </h1>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            In addition to custom promotional merchandise, CliGraphics delivers complete commercial printing, program book publishing, attendee swag kitting, and convention freight logistics.
+            In addition to custom promotional merchandise, CLI Graphics delivers complete commercial printing, program book publishing, attendee swag kitting, and convention freight logistics.
           </p>
         </div>
 

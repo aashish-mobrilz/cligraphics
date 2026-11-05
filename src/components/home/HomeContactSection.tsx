@@ -84,8 +84,8 @@ export const HomeContactSection: React.FC = () => {
                       <input
                         type="text"
                         required
-                        defaultValue="Elena Rostova"
-                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white outline-none focus:border-amber-500"
+                        placeholder="e.g. Elena Rostova"
+                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white placeholder:text-stone-500 outline-none focus:border-amber-500"
                       />
                     </div>
                     <div>
@@ -93,8 +93,8 @@ export const HomeContactSection: React.FC = () => {
                       <input
                         type="text"
                         required
-                        defaultValue="National Healthcare Summit 2027"
-                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white outline-none focus:border-amber-500"
+                        placeholder="e.g. National Healthcare Summit 2027"
+                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white placeholder:text-stone-500 outline-none focus:border-amber-500"
                       />
                     </div>
                   </div>
@@ -105,16 +105,16 @@ export const HomeContactSection: React.FC = () => {
                       <input
                         type="email"
                         required
-                        defaultValue="elena@healthcaresummit2027.demo"
-                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white outline-none focus:border-amber-500"
+                        placeholder="e.g. elena@healthcaresummit2027.com"
+                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white placeholder:text-stone-500 outline-none focus:border-amber-500"
                       />
                     </div>
                     <div>
                       <label className="block text-stone-300 font-medium mb-1">Target Event Date</label>
                       <input
                         type="text"
-                        defaultValue="October 15, 2027"
-                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white outline-none focus:border-amber-500"
+                        placeholder="e.g. October 15, 2027"
+                        className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white placeholder:text-stone-500 outline-none focus:border-amber-500"
                       />
                     </div>
                   </div>
@@ -123,8 +123,8 @@ export const HomeContactSection: React.FC = () => {
                     <label className="block text-stone-300 font-medium mb-1">Inquiry Details</label>
                     <textarea
                       rows={3}
-                      defaultValue="Requesting material swatches and preliminary estimates for 2,500 heavyweight cotton conference totes with front and back imprints, plus matching lanyards."
-                      className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white outline-none focus:border-amber-500 text-xs"
+                      placeholder="Requesting material swatches and preliminary estimates for 2,500 heavyweight cotton conference totes with front and back imprints, plus matching lanyards."
+                      className="w-full px-3 py-2 bg-stone-950 border border-stone-700 rounded-lg text-white placeholder:text-stone-500 outline-none focus:border-amber-500 text-xs"
                     />
                   </div>
 
@@ -145,48 +145,60 @@ export const HomeContactSection: React.FC = () => {
 
   // Option A: Commercial Promotional Layout
   return (
-    <section id="contact" className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="contact" className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-20">
       <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm">
         <div className="max-w-2xl mx-auto text-center space-y-3 mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
-            Let's Plan Your Next Event
+            Conference Consultation & Direct Quote
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            Contact CliGraphics Conference Specialists
+            Planning an Upcoming Conference? Let's Talk.
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            One source for all your conference needs. Connect with our dedicated family-owned team for sample kits, rush order feasibility, and custom print estimates.
+            One source for all your conference and printing needs. Connect with our dedicated family-owned team for factory direct quotes, sample kits, rush order feasibility, and dockside freight coordination.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 align-middle">
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 space-y-3 text-xs">
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <a
+              href="tel:18002542663"
+              className="block p-4 rounded-2xl bg-slate-50 hover:bg-sky-50/50 border border-slate-200 hover:border-sky-300 transition-colors space-y-1"
+            >
               <div className="flex items-center gap-2 text-sky-800 font-bold">
                 <Phone className="w-4 h-4 text-sky-600" />
-                <span>Conference Hotline</span>
+                <span>Conference Direct Hotline</span>
               </div>
-              <p className="text-slate-900 font-bold text-sm">1-800-CLI-CONF</p>
+              <p className="text-slate-900 font-bold text-base">1-800-CLI-CONF</p>
               <p className="text-slate-500 text-[11px]">Toll-Free &bull; Monday &ndash; Friday 8am &ndash; 6pm EST</p>
-            </div>
+            </a>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <a
+              href="mailto:orders@cligraphics.demo"
+              className="block p-4 rounded-2xl bg-slate-50 hover:bg-sky-50/50 border border-slate-200 hover:border-sky-300 transition-colors space-y-1"
+            >
               <div className="flex items-center gap-2 text-sky-800 font-bold">
                 <Mail className="w-4 h-4 text-sky-600" />
-                <span>Orders & Estimating</span>
+                <span>Orders & Factory Estimating</span>
               </div>
               <p className="text-slate-900 font-bold text-sm">orders@cligraphics.demo</p>
-              <p className="text-slate-500 text-[11px]">Quick response within 1 business day</p>
-            </div>
+              <p className="text-slate-500 text-[11px]">Guaranteed response within 1 business day</p>
+            </a>
 
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
               <div className="flex items-center gap-2 text-sky-800 font-bold">
                 <Building className="w-4 h-4 text-sky-600" />
-                <span>Facility Headquarters</span>
+                <span>Facility & Production Headquarters</span>
               </div>
-              <p className="text-slate-900 font-bold text-xs">Client Facility Placeholder</p>
-              <p className="text-slate-500 text-[11px]">Official address details pending client confirmation</p>
+              <p className="text-slate-900 font-bold text-xs">Commercial Press & Warehouse Facility</p>
+              <p className="text-slate-500 text-[11px]">Serving conference venues and event halls across North America</p>
+            </div>
+            
+            {/* Quantity Notice Highlight */}
+            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs">
+              <strong className="block font-bold mb-1">Volume Conference Orders:</strong>
+              <span>For quantities over 1,000, please call or email for direct factory quote and custom shipping timelines.</span>
             </div>
           </div>
 
@@ -195,14 +207,14 @@ export const HomeContactSection: React.FC = () => {
             {submitted ? (
               <div className="py-8 text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                <h3 className="font-bold text-lg text-slate-900">Message Dispatched!</h3>
+                <h3 className="font-bold text-lg text-slate-900">Request Dispatched!</h3>
                 <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
-                  Thank you for testing the contact inquiry. In the live implementation, your project specifications route directly to an account representative.
+                  Thank you for submitting your conference requirements. A CLI Graphics event coordinator will review your schedule and respond within 1 business day.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-3 text-xs text-sky-700 underline font-semibold"
+                  className="mt-3 text-xs text-sky-700 underline font-semibold cursor-pointer"
                 >
                   Send another inquiry
                 </button>
@@ -221,8 +233,8 @@ export const HomeContactSection: React.FC = () => {
                     <input
                       type="text"
                       required
-                      defaultValue="Marcus Vance"
-                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
+                      placeholder="e.g. Marcus Vance"
+                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
                     />
                   </div>
                   <div>
@@ -230,8 +242,8 @@ export const HomeContactSection: React.FC = () => {
                     <input
                       type="text"
                       required
-                      defaultValue="Global FinTech Convention 2027"
-                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
+                      placeholder="e.g. Global FinTech Convention 2027"
+                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
                     />
                   </div>
                 </div>
@@ -242,16 +254,16 @@ export const HomeContactSection: React.FC = () => {
                     <input
                       type="email"
                       required
-                      defaultValue="mvance@fintech2027.demo"
-                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
+                      placeholder="e.g. mvance@fintech2027.com"
+                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
                     />
                   </div>
                   <div>
                     <label className="block text-slate-700 font-semibold mb-1">Estimated Quantity</label>
                     <input
                       type="text"
-                      defaultValue="1,200 Attendees"
-                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
+                      placeholder="e.g. 1,200 Attendees"
+                      className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600"
                     />
                   </div>
                 </div>
@@ -260,16 +272,16 @@ export const HomeContactSection: React.FC = () => {
                   <label className="block text-slate-700 font-semibold mb-1">Project Details</label>
                   <textarea
                     rows={3}
-                    defaultValue="Inquiring about custom tote bags, registration badges with double-ended clips, and 64-page full-color event programs with direct delivery to the convention center."
-                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-xs"
+                    placeholder="Inquiring about custom tote bags, registration badges with double-ended clips, and 64-page full-color event programs with direct delivery to the convention center."
+                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-xs"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-xl bg-[#0B3B60] hover:bg-[#072842] text-white font-bold tracking-wider uppercase text-xs transition-colors shadow-md"
+                  className="w-full py-3.5 rounded-xl bg-[#E65100] hover:bg-[#C64500] text-white font-bold tracking-wider uppercase text-xs transition-colors shadow-md cursor-pointer"
                 >
-                  Send Conference Request (Demo)
+                  Submit Conference Quote Request
                 </button>
               </form>
             )}

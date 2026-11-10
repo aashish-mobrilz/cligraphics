@@ -428,43 +428,21 @@ export const HomePage: React.FC = () => {
       <section className="relative overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-slate-50  pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-10 lg:pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Client-Approved Copy & Actions */}
+            {/* Left Column: Client-Approved Copy */}
             <div className="lg:col-span-7 space-y-5 text-left">
-              {/* Primary Tagline - Exact Client Approved Copy */}
+              {/* Primary Tagline - Updated per Nov 9 Client Notes */}
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight leading-[1.15] font-heading text-slate-900">
-                One source for all your conference needs. 
+                One source for all your conference and promotional needs.
               </h1>
 
-              {/* Supporting Copy - Exact Client Approved Copy */}
-              <div className="space-y-2 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
+              {/* Supporting Copy - Uniform font & size per Nov 9 Client Notes */}
+              <div className="space-y-2 text-sm sm:text-sm lg:text-[15px] text-slate-600 leading-relaxed max-w-xl font-normal">
                 <p>
                   From conference tote bags to attendee lanyards, journals, pens, tech products
                 </p>
-                <p className="font-medium text-slate-800">
+                <p>
                   All printing requirements including registration brochures, program books, product sheets and all direct mail and fulfillment services
                 </p>
-              </div>
-
-              {/* Hero CTAs: Red Primary + Request a Quote Secondary */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-1">
-                {/* Red Primary Button (Explores Products) */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('product-categories')}
-                  className="px-6 py-3.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white cursor-pointer ring-2 ring-red-500/20 active:scale-98"
-                >
-                  <Palette className="w-4 h-4" />
-                  <span>Explore Products</span>
-                </button>
-
-                {/* Secondary Button: Request a Quote */}
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('contact')}
-                  className="px-6 py-3.5 rounded-xl text-sm font-bold bg-white hover:bg-slate-50 text-slate-800 hover:text-[#E65100] border-2 border-slate-300 hover:border-[#E65100] transition-all flex items-center gap-2 shadow-xs cursor-pointer active:scale-98"
-                >
-                  <span>Request a Quote</span>
-                </button>
               </div>
 
               {/* Trust Pillars */}
@@ -488,17 +466,10 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-5 flex items-center justify-center">
               <div className="w-full max-w-lg bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg relative group">
                 <img
-                  src="/images/conference/hero-image.png"
-                  alt="Conference attendees with badges, lanyards, and overhead directional signage"
+                  src="/images/conference/hero-conference-new.jpg"
+                  alt="Conference registration atrium with attendees wearing badges and lanyards, carrying conference tote bags and programs"
                   className="w-full h-64 sm:h-72 lg:h-84 object-cover object-center group-hover:scale-102 transition-transform duration-500"
                 />
-                {/* <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-900/40 to-transparent p-4 text-white">
-                  <div className="flex items-center gap-2 text-xs font-bold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>On-Site Conference Partner &bull; Venue Delivery</span>
-                  </div>
-                  <p className="text-[11px] text-slate-200 mt-0.5">Attendee badges, lanyards, programs & signage</p>
-                </div> */}
               </div>
             </div>
           </div>
@@ -563,15 +534,9 @@ export const HomePage: React.FC = () => {
       <section id="product-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 scroll-mt-20">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
-              Promotional Merchandise & Event Printing
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-heading">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
               Product Categories
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Quickly identify conference essentials. Click any category circle for direct selections.
-            </p>
           </div>
           <button
             type="button"

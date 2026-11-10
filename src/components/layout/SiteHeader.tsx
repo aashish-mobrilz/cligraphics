@@ -394,90 +394,83 @@ export const SiteHeader: React.FC = () => {
 
   // =========================================================================
   // OPTION A: INTEGRATED HEADER LAYOUT (Static Prototype Layout)
-  // Preserving Exact Order: Logo -> All Categories -> Navigation -> Search -> Cart
+  // Order: Larger Logo -> Larger Centered Search -> Navigation -> Quote & Cart
   // =========================================================================
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-40 transition-colors shadow-2xs">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-5">
-          {/* 1. LOGO (Scrolls to top) */}
+        <div className="flex items-center justify-between gap-3 sm:gap-4 lg:gap-6">
+          {/* 1. LOGO (Enlarged CLI Logo 2, Scrolls to top) */}
           <div
             onClick={() => scrollToSection('top')}
-            className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0 group text-left cursor-pointer select-none"
+            className="flex items-center flex-shrink-0 group cursor-pointer select-none"
+            aria-label="CLI Graphics Home"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center font-black text-base sm:text-lg shadow-sm transition-transform group-hover:scale-105 bg-gradient-to-br from-[#0B3B60] to-[#0284C7] text-white">
-              CG
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-base sm:text-xl font-black tracking-tight font-heading text-[#0B3B60]">
-                  CLI Graphics
-                </span>
-              </div>
-              <p className="text-[10px] leading-none hidden 2xl:block text-slate-500">
-                Conference Merchandise & Printing Partner
-              </p>
-            </div>
+            <img
+              src="/images/brand/cli-logo-2.png"
+              alt="CLI Graphics"
+              className="h-9 sm:h-11 lg:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            />
           </div>
 
-          {/* 2. MAIN NAVIGATION MENU (Products | Services | About | FAQ | Contact) */}
-          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* 2. LARGER SEARCH BAR CLOSER TO THE MIDDLE (Tablet & Desktop) */}
+          <div className="flex-1 max-w-md lg:max-w-lg xl:max-w-xl mx-auto hidden sm:block">
+            <form onSubmit={handleSearchSubmit} className="relative w-full">
+              <input
+                type="text"
+                placeholder="Search bags, lanyards, programs, pens..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-20 sm:pr-24 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all outline-none bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#0B3B60] focus:ring-2 focus:ring-sky-100 shadow-2xs"
+              />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <button
+                type="submit"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-semibold text-white bg-[#0B3B60] hover:bg-[#072842] transition-colors cursor-pointer"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+
+          {/* 3. MAIN NAVIGATION MENU (Products | Services | About | FAQ | Contact) */}
+          <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-shrink-0">
             <button
               type="button"
               onClick={() => scrollToSection('product-categories')}
-              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+              className="text-xs font-bold px-2 xl:px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               Products
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('services-section')}
-              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+              className="text-xs font-bold px-2 xl:px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               Services
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('about')}
-              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+              className="text-xs font-bold px-2 xl:px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               About
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('faq')}
-              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+              className="text-xs font-bold px-2 xl:px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               FAQ
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('contact')}
-              className="text-xs font-bold px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
+              className="text-xs font-bold px-2 xl:px-2.5 py-1.5 rounded-lg text-slate-700 hover:text-[#0B3B60] hover:bg-slate-100 transition-colors cursor-pointer"
             >
               Contact
             </button>
           </nav>
-
-          {/* 3. SEARCH BAR (Tablet & Desktop) */}
-          <div className="flex-1 max-w-[180px] sm:max-w-xs xl:max-w-sm hidden sm:block">
-            <form onSubmit={handleSearchSubmit} className="relative w-full">
-              <input
-                type="text"
-                placeholder="Search bags, lanyards, programs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-16 sm:pr-20 py-1.5 sm:py-2 rounded-full text-xs transition-all outline-none bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#0B3B60] focus:ring-2 focus:ring-sky-100"
-              />
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <button
-                type="submit"
-                className="absolute right-1 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-[#0B3B60] hover:bg-[#072842] transition-colors cursor-pointer"
-              >
-                Search
-              </button>
-            </form>
-          </div>
 
           {/* 4. ACTIONS: Request a Quote Button & Cart */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
